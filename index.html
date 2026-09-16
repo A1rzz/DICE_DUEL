@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DICE DUEL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dice-fantasy-v11.css?v=FINAL4">
+</head>
+<body>
+<div class="page">
+  <header class="hero"></header>
+
+  <div class="layout">
+    <!-- LEFT: only real game mode selectors -->
+    <aside class="left-column frame">
+      <div class="mode-rail">
+        <button class="mode active" data-mode="2">
+          <span class="mode-symbol sword-icon" aria-hidden="true"><i></i><i></i></span>
+          <span class="mode-copy"><strong>1 VS 1</strong><small>Das klassische Duell</small></span>
+        </button>
+        <button class="mode" data-mode="10">
+          <span class="mode-symbol group-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="mode-copy"><strong>BIS ZU 10 SPIELER</strong><small>Wer zuerst 1 würfelt, scheidet aus</small></span>
+        </button>
+      </div>
+      <div class="left-art"></div>
+    </aside>
+
+    <!-- CENTER -->
+    <main class="center-column frame">
+
+      <!-- HOME / create + join -->
+      <section id="home" class="view">
+        <div class="titlebar">DICE DUEL</div>
+
+        <div class="home-intro parchment">
+          <h2>Willkommen bei DICE DUEL</h2>
+          <p>Wähle links den Spielmodus. Erstelle danach einen neuen Raum oder tritt mit einem Raum-Code bei.</p>
+        </div>
+
+        <div class="home-grid">
+          <article class="parchment home-card">
+            <h3>RAUM ERSTELLEN</h3>
+            <label>Dein Name</label>
+            <input id="createName" maxlength="18" placeholder="z. B. Alex">
+            <label>Startzahl</label>
+            <input id="start" type="number" min="2" max="1000000000" value="100">
+            <button id="create" class="red-btn full">RAUM ERSTELLEN</button>
+          </article>
+
+          <article class="parchment home-card">
+            <h3>RAUM BEITRETEN</h3>
+            <label>Dein Name</label>
+            <input id="joinName" maxlength="18" placeholder="z. B. Tom">
+            <label>Raum-Code</label>
+            <input id="code" maxlength="6" placeholder="A7K9XX">
+            <button id="join" class="red-btn full">RAUM BEITRETEN</button>
+          </article>
+        </div>
+        <p id="configHint" class="hint"></p>
+      </section>
+
+      <!-- LOBBY -->
+      <section id="lobby" class="view hidden">
+        <div class="titlebar">LOBBY</div>
+
+        <div class="lobby-settings parchment">
+          <div class="lobby-setting mode-display">
+            <span class="setting-label">SPIELMODUS</span>
+            <div id="lobbyModeLabel" class="black-select">⚔ 1 VS 1</div>
+          </div>
+
+          <div class="lobby-setting stake-setting">
+            <label for="stakeAmount" class="setting-label">EINSATZ / BETRAG</label>
+            <div class="stake-control">
+              <span class="coin-icon">●●●</span>
+              <input id="stakeAmount" type="number" min="0" step="1" value="0">
+              <span class="currency coin-stack-icon" aria-label="Goldmünzen"><i></i><i></i><i></i></span>
+              <button id="saveStake" class="mini-dark">SPEICHERN</button>
+            </div>
+            <small id="stakeHint">Nur der Host kann den Betrag vor dem Start ändern.</small>
+          </div>
+
+          <div class="lobby-setting code-setting">
+            <span class="setting-label">RAUMCODE</span>
+            <div class="code-row">
+              <div id="lobbyCode" class="room-code">------</div>
+              <button id="copyCode" class="copy-icon">⧉</button>
+            </div>
+            <button id="copyLink" class="invite-link">↗ EINLADUNGSLINK TEILEN</button>
+          </div>
+        </div>
+
+        <div class="players-titlebar">
+          <strong id="playerCountTitle">SPIELER</strong>
+          <button id="shufflePlayers" class="shuffle-btn hidden">🔀 ZUFÄLLIG MISCHEN</button>
+        </div>
+
+        <div class="players-panel parchment">
+          <div id="lobbyPlayers" class="lobby-players"></div>
+          <div class="players-help">
+            <div class="ghost-dice">⚄</div>
+            <p>ORDNE DIE REIHENFOLGE,<br>MISCH SIE ODER STARTE<br>DAS SPIEL!</p>
+          </div>
+        </div>
+
+        <button id="startGame" class="start-btn hidden">⚔ SPIEL STARTEN</button>
+        <p id="wait" class="hint">⏳ Warte auf Mitspieler…</p>
+      </section>
+
+      <!-- GAME -->
+      <section id="game" class="view hidden">
+        <div class="titlebar duel-title">
+          <span>DUELL</span>
+          <button id="leave" class="mini-dark">VERLASSEN</button>
+        </div>
+
+        <div class="game-topline">
+          <span>RAUM <strong id="gameCode">------</strong></span>
+          <span id="gameModeLabel">1 VS 1</span>
+        </div>
+
+        <div id="players" class="players"></div>
+
+        <div class="pre-roll-actions">
+          <button id="shuffleBeforeRoll" class="shuffle-btn hidden">🔀 REIHENFOLGE MISCHEN</button>
+        </div>
+
+        <div class="game-grid">
+          <article class="parchment game-card center">
+            <span class="setting-label">AKTUELLE ZAHL</span>
+            <div id="number" class="number">—</div>
+            <div id="modeText" class="mode-text"></div>
+            <div id="stakeText" class="stake-text"></div>
+            <div id="turnText" class="turn-text">—</div>
+            <button id="roll" class="roll-btn" disabled>🎲 WÜRFELN</button>
+            <div id="rollResult" class="roll-result"></div>
+          </article>
+
+          <article class="parchment game-card">
+            <h3>SPIELHISTORIE</h3>
+            <div id="history" class="history"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- RESULT -->
+      <section id="result" class="view hidden">
+        <div class="titlebar">ERGEBNIS</div>
+        <article id="resultCard" class="parchment result-card center card result">
+          <div id="emoji" class="result-emoji">🏆</div>
+          <b>DUELL BEENDET</b>
+          <h2 id="resultTitle"></h2>
+          <p id="resultText"></p>
+          <div id="resultSummary" class="result-summary"></div>
+          <button id="rematch" class="red-btn full">🔄 NEUES SPIEL</button>
+          <button id="homeBtn" class="dark-btn full">HAUPTMENÜ</button>
+        </article>
+      </section>
+    </main>
+
+    <!-- RIGHT -->
+    <aside class="right-column frame">
+      <section class="side-box">
+        <div class="side-title">DEIN PROFIL</div>
+        <div class="profile">
+          <div class="profile-orb"><span class="person-head"></span><span class="person-body"></span></div>
+          <div>
+            <strong id="profileName">Spieler</strong>
+            <span>● Online</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-box room-info">
+        <div class="side-title">RAUM-INFOS</div>
+        <div class="side-info-body">
+          <p><b class="info-icon crossed">⚔</b><span>Raumcode:</span><strong id="sideRoomCode">—</strong></p>
+          <p><b class="info-icon team">♟</b><span>Modus:</span><strong id="sideMode">—</strong></p>
+          <p><b class="info-icon coins">●</b><span>Einsatz:</span><strong id="sideStake"><span class="stake-number">0</span><span class="mini-coins" aria-hidden="true"><i></i><i></i><i></i></span></strong></p>
+          <p><b class="info-icon hourglass">⌛</b><span>Status:</span><strong id="sideStatus">Start</strong></p>
+          <p><b class="info-icon team">♟</b><span>Spieler:</span><strong id="sidePlayers">—</strong></p>
+        </div>
+      </section>
+
+      <div class="right-art"></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js?v=FINAL4"></script>
+</body>
+</html>

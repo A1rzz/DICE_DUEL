@@ -1,0 +1,5 @@
+
+window.DICE_DUEL_CONFIG = {
+  SUPABASE_URL: "https://yyfvehzoacydmerritto.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl5ZnZlaHpvYWN5ZG1lcnJpdHRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNzE0MzUsImV4cCI6MjEwNDY0NzQzNX0.Qb8C4e5hzKKHRvx2kkwe4sSfmCnl_ob5jK03qqCN0iw"
+};

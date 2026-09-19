@@ -1,0 +1,76 @@
+/* Common visual finish. No reel, symbol, position or animation rules. */
+:root{
+ --gamble-ruby:linear-gradient(120deg,#190302,#440607 43%,#270304 74%,#100202);
+ --gamble-black:linear-gradient(145deg,#17130e,#080706 60%,#100c08);
+ --gamble-gold:#b99143;
+ --gamble-letter:#f3d797;
+}
+body .layout{background:#080604!important;}
+body .layout>.center-column,body .layout>.right-column{
+ background:var(--gamble-black)!important;
+ border-color:var(--gamble-gold)!important;
+ box-shadow:inset 0 0 0 2px #241a0e,inset 0 0 0 3px #755827,0 4px 14px #000!important;
+}
+/* The approved start artwork provides the 4Gamble header too. */
+body .hero{
+ background-image:url("assets/start-screen-original.png")!important;
+ background-size:100% auto!important;background-position:center top!important;
+ background-repeat:no-repeat!important;
+ aspect-ratio:1645/250!important;
+}
+body .hero::before,body .hero::after{content:none!important;display:none!important;}
+body .titlebar,body .side-title,body .players-titlebar,
+body #slot>.titlebar,body #slot .bod-paytable-head{
+ color:var(--gamble-letter)!important;background:var(--gamble-ruby)!important;
+ border-color:var(--gamble-gold)!important;
+ box-shadow:inset 0 0 0 1px #37200e,inset 0 0 0 2px #8e682b,inset 0 0 16px #100201!important;
+ text-shadow:0 2px 2px #080201!important;
+ font-family:Cinzel,Georgia,serif!important;
+}
+body .red-btn,body .roll-btn,body .start-btn,body .shuffle-btn,
+body .invite-link,body .mini-dark,body #slot .bod-spin{
+ color:var(--gamble-letter)!important;background:var(--gamble-ruby)!important;
+ border-color:#c6a052!important;
+ box-shadow:inset 0 0 0 1px #321707,inset 0 0 0 2px #987337,inset 0 0 15px #100202,0 2px 5px #000!important;
+ text-shadow:0 2px 2px #080201!important;
+ font-family:Cinzel,Georgia,serif!important;
+}
+body .parchment{
+ background:linear-gradient(130deg,#e4d1a7,#cbb382 65%,#e3cfa5)!important;
+ color:#342415!important;border-color:var(--gamble-gold)!important;
+ box-shadow:inset 0 0 0 2px #977344,inset 0 0 22px #94724555!important;
+}
+body .parchment h2,body .parchment h3{color:#4b100e!important;}
+body .side-box,body .profile,body .side-info-body{
+ background:var(--gamble-black)!important;color:var(--gamble-letter)!important;
+ border-color:var(--gamble-gold)!important;
+}
+body .right-art{border-color:var(--gamble-gold)!important;}
+body #slot .bod-cabinet{
+ background:var(--gamble-black)!important;border-color:var(--gamble-gold)!important;
+ box-shadow:inset 0 0 0 2px #2d2010,inset 0 0 22px #000!important;
+}
+body #slot .bod-marquee{
+ background:var(--gamble-ruby)!important;border-color:#bd9344!important;
+ box-shadow:inset 0 0 0 2px #503416,inset 0 0 20px #090101!important;
+}
+body #slot .bod-marquee b{
+ color:var(--gamble-letter)!important;
+ text-shadow:0 2px #573716,0 3px 4px #000!important;
+}
+body #slot .bod-marquee small,body #slot .bod-wing{color:#d6b573!important;}
+body #slot .bod-console,body #slot .bod-subcontrols,
+body #slot .bod-message,body #slot .bod-footer,
+body #slot .bod-status-hud,body #slot .currency-hud{
+ background:var(--gamble-black)!important;border-color:#98743a!important;
+ color:var(--gamble-letter)!important;
+}
+body #slot .bod-stat,body #slot .bod-bet,body #slot .bod-subcontrols button,
+body #slot .bod-bet button,body #slot .bod-paytable-card{
+ background:var(--gamble-black)!important;border-color:var(--gamble-gold)!important;
+ color:var(--gamble-letter)!important;box-shadow:inset 0 0 8px #000!important;
+}
+body #slot .bod-subcontrols button.active,body #slot .slot-free{
+ background:var(--gamble-ruby)!important;border-color:var(--gamble-gold)!important;
+ color:var(--gamble-letter)!important;
+}

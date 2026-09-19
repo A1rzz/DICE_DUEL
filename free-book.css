@@ -1,0 +1,30 @@
+/* Isolated bonus layer: no changes to reel geometry or payouts. */
+#slot .nf-overlay{position:absolute;inset:0;z-index:1000;display:grid;place-items:center;background:rgba(5,2,1,.85);overflow:hidden;opacity:1;transition:opacity .6s ease;container-type:inline-size}
+#slot .nf-overlay.hidden{display:none}
+#slot .nf-overlay.nf-out{opacity:0;pointer-events:none}
+#slot .nf-stage{width:96%;max-width:1000px;text-align:center;color:#ffe1a0;padding:12px 0}
+#slot .nf-kicker{font:700 clamp(10px,1.5cqw,16px) Georgia,serif;letter-spacing:.18em}
+#slot .nf-stage h2{font:900 clamp(24px,6cqw,62px) Georgia,serif;color:#ffd36c;text-shadow:0 2px #823308,0 0 18px #a96514;margin:8px 0}
+#slot .nf-book{position:relative;width:100%;aspect-ratio:3/2;perspective:1600px;isolation:isolate}
+#slot .nf-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .9s;pointer-events:none;border-radius:5%;mask-image:linear-gradient(to bottom,transparent,#000 7%,#000 94%,transparent)}
+#slot .nf-open .nf-base{opacity:1}
+#slot .nf-left,#slot .nf-right{position:absolute;top:20%;height:52%;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .7s .5s;color:#672405;text-shadow:0 1px #ffe7a4}
+#slot .nf-left{left:14%;width:32%}
+#slot .nf-left b{font:900 clamp(40px,15cqw,155px) Georgia,serif;color:#b9770b;text-shadow:1px 2px #572000,-1px -1px #fff2b0;line-height:1.1}
+#slot .nf-left span{font:900 clamp(11px,3cqw,30px) Georgia,serif}
+#slot .nf-right{left:55%;width:29%;gap:8px}
+#slot .nf-open .nf-left,#slot .nf-open .nf-right{opacity:1}
+#slot #featureChosenSymbol{width:82%;aspect-ratio:1;display:grid;place-items:center;font-size:40px;will-change:opacity,transform,filter;transform-origin:center}
+#slot .nf-right .custom-slot-symbol,#slot .nf-leaf .custom-slot-symbol{position:static!important;inset:auto!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;transform:none!important;margin:0!important;animation:none!important;filter:none!important}
+#slot #featureSymbolLabel{font:900 clamp(10px,2.4cqw,24px) Georgia,serif}
+#slot .nf-cover{position:absolute;left:30%;top:8%;width:40%;height:80%;object-fit:contain;transform-origin:left center;transition:transform 1.05s ease-in-out,opacity .8s .15s;z-index:5;backface-visibility:hidden}
+#slot .nf-open .nf-cover{transform:rotateY(-165deg);opacity:0;pointer-events:none}
+#slot .nf-leaf{position:absolute;left:50%;top:12%;width:37%;height:67%;transform-origin:left center;transform-style:preserve-3d;opacity:0;z-index:4;pointer-events:none}
+#slot .nf-front,#slot .nf-back{position:absolute;inset:0;display:grid;place-items:center;padding:16%;box-sizing:border-box;border:1px solid #b58337;border-radius:2% 7% 5% 2%;background:linear-gradient(95deg,#b77b31,#ffe5ac 18%,#edc881 92%,#bb843c);box-shadow:inset 0 0 24px #b48342,5px 8px 18px #0006;backface-visibility:hidden;color:#ae7931;font-size:45px}
+#slot .nf-back{transform:rotateY(180deg)}
+#slot .nf-stage p{min-height:2em;margin:4px 8px;font:700 clamp(10px,1.8cqw,18px) Georgia,serif;letter-spacing:.1em}
+#slot .nf-chosen #featureChosenSymbol{filter:drop-shadow(0 0 12px #edb441)}
+#slot .nf-chosen #featureSymbolLabel{animation:nfLabelIn .42s ease-out both}
+@keyframes nfLabelIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+#slot .nf-trigger{outline:2px solid #ffdd75;outline-offset:-3px;filter:brightness(1.2) drop-shadow(0 0 12px #ffb323)}
+@media(prefers-reduced-motion:reduce){#slot .nf-overlay,#slot .nf-book *{transition:none!important;animation:none!important}}

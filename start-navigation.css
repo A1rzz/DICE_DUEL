@@ -1,0 +1,26 @@
+/* Start is the parent destination; the three games are subordinate choices. */
+.left-column .start-home-btn{
+ display:flex;align-items:center;gap:14px;width:100%;min-height:62px;
+ flex:0 0 auto;padding:12px 16px;text-align:left;
+ color:#ffe39a;background:linear-gradient(180deg,#a42116,#520905 65%,#220302);
+ border:2px solid #d19b39;box-shadow:inset 0 0 0 2px #301005,0 2px 7px #000;
+ font:800 23px/1.15 Cinzel,Georgia,serif;
+}
+.start-home-btn>span{font:32px/1 Georgia,serif;}
+.start-home-btn:hover,.start-home-btn:focus-visible{
+ filter:brightness(1.18);outline:2px solid #ffe39a;outline-offset:2px;
+}
+.mode-group-label{
+ flex:0 0 auto;margin:15px 0 8px 13px;color:#cba354;
+ font:700 11px/1.3 Cinzel,Georgia,serif;letter-spacing:.12em;
+}
+.left-column .mode-rail{
+ display:flex!important;flex-direction:column!important;
+ margin-left:12px;padding-left:9px;border-left:1px solid #80531c;
+}
+.left-column .mode-rail .mode,.left-column .mode-rail .slot-mode-btn{
+ width:100%;min-width:0;grid-template-columns:48px minmax(0,1fr)!important;
+ padding:9px 7px!important;
+}
+.left-column .mode-copy strong{font-size:18px!important;}
+.left-column .mode-copy{min-width:0;}

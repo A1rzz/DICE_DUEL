@@ -1,0 +1,3761 @@
+
+:root{
+  --gold:#e0b54c;
+  --gold-hi:#ffd875;
+  --gold-dark:#7f521a;
+  --black:#050403;
+  --black2:#0b0805;
+  --red:#6d0d08;
+  --red2:#a0190f;
+  --paper:#d7bf93;
+  --ink:#2a190d;
+  --cream:#f4d576;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#020201;color:var(--cream);font-family:Inter,Arial,sans-serif}
+body{
+  background:
+    radial-gradient(circle at 50% 0,#2d1509 0,#080503 42%,#010101 78%);
+}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.35;cursor:not-allowed}
+.hidden{display:none!important}
+.page{min-height:100vh}
+
+/* EXACT TOP ART */
+.hero{
+  width:min(1536px,100%);
+  aspect-ratio:1536/255;
+  margin:0 auto;
+  background:url("assets/hero.jpg") center top/cover no-repeat;
+  box-shadow:0 10px 30px #000;
+}
+
+/* 3-column structure from mockup */
+.layout{
+  width:min(1536px,100%);
+  margin:0 auto;
+  padding:7px 4px 18px;
+  display:grid;
+  grid-template-columns:315px minmax(0,1fr) 326px;
+  gap:11px;
+}
+.frame{
+  background:#070503;
+  border:2px solid #6f4818;
+  outline:1px solid #201309;
+  box-shadow:
+    inset 0 0 0 3px #160d07,
+    inset 0 0 0 5px #8b5b1e22,
+    0 12px 28px #000;
+}
+
+/* LEFT MODE RAIL */
+.left-column{padding:13px;min-height:710px}
+.mode-rail{display:flex;flex-direction:column;gap:12px}
+.mode{
+  min-height:94px;
+  display:grid;
+  grid-template-columns:74px 1fr;
+  align-items:center;
+  text-align:left;
+  padding:10px 12px;
+  margin:0;
+  color:#f0cf69;
+  background:
+    linear-gradient(180deg,#75120b,#340704);
+  border:1px solid #b77925;
+  box-shadow:
+    inset 0 0 0 3px #170805,
+    inset 0 0 0 5px #8c5d1d,
+    0 0 12px #000;
+}
+.mode:not(.active){
+  background:linear-gradient(180deg,#1c150f,#090705);
+}
+.mode.active{
+  border-color:#efb12e;
+  box-shadow:
+    inset 0 0 0 3px #1a0804,
+    inset 0 0 0 5px #bb751f,
+    0 0 14px #d77a1955;
+}
+.mode-symbol{
+  font-size:43px;
+  text-align:center;
+  filter:sepia(1) saturate(1.4);
+}
+.mode-copy strong{
+  display:block;
+  font:800 21px Cinzel,serif;
+  line-height:1.1;
+}
+.mode-copy small{
+  display:block;
+  margin-top:6px;
+  font-size:11px;
+  color:#e2c47b;
+  line-height:1.3;
+}
+.left-art{
+  height:485px;
+  margin-top:13px;
+  border:1px solid #704819;
+  background:url("assets/left-dice.jpg") center/cover no-repeat;
+  box-shadow:inset 0 0 30px #000;
+}
+
+/* CENTER */
+.center-column{min-width:0;padding:0 10px 17px;min-height:710px}
+.view{animation:fade .18s ease}
+@keyframes fade{from{opacity:.35}to{opacity:1}}
+
+.titlebar,.players-titlebar,.side-title{
+  color:#f0cd5d;
+  font-family:Cinzel,serif;
+  font-weight:800;
+  background:
+    linear-gradient(180deg,#72120b,#330704);
+  border:1px solid #a36b22;
+  box-shadow:inset 0 0 0 2px #180805;
+}
+.titlebar{
+  font-size:25px;
+  padding:9px 14px;
+  margin:0 -10px 11px;
+}
+.parchment{
+  color:var(--ink);
+  background:
+    linear-gradient(#e4d0a7dd,#cdb182e8),
+    url("assets/parchment.jpg") center/cover;
+  border:2px solid #886029;
+  box-shadow:
+    inset 0 0 0 3px #e6d1a8,
+    inset 0 0 28px #76512255;
+}
+
+.home-intro{padding:18px;margin-bottom:11px}
+.home-intro h2{
+  margin:0 0 8px;
+  color:#65130d;
+  font:800 21px Cinzel,serif
+}
+.home-intro p{margin:0;line-height:1.5}
+.home-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.home-card{padding:18px}
+.home-card h3,.game-card h3{
+  margin:0 0 13px;
+  color:#64130c;
+  font:800 19px Cinzel,serif
+}
+label,.setting-label{
+  display:block;
+  color:#513019;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+label{margin:10px 0 5px}
+input{
+  width:100%;
+  height:43px;
+  padding:9px 12px;
+  color:#25150b;
+  background:#efdfbd;
+  border:2px inset #755022;
+  outline:none;
+}
+input:focus{box-shadow:0 0 0 2px #c38420aa}
+
+/* generic buttons */
+.red-btn,.dark-btn,.mini-dark,.invite-link,.shuffle-btn,.start-btn,.roll-btn,.copy-icon{
+  color:#f2d36b;
+  font-family:Cinzel,serif;
+  font-weight:800;
+  border:1px solid #a56b20;
+  box-shadow:inset 0 0 0 2px #140704;
+}
+.red-btn{
+  padding:12px 16px;
+  background:linear-gradient(#9b190f,#450704);
+}
+.dark-btn,.mini-dark{
+  padding:9px 12px;
+  background:linear-gradient(#201a12,#060504);
+}
+.full{width:100%;margin-top:13px}
+
+/* LOBBY SETTINGS exactly in 3 columns */
+.lobby-settings{
+  display:grid;
+  grid-template-columns:1fr 1.12fr 1fr;
+  min-height:165px;
+  padding:13px 17px;
+  gap:18px;
+}
+.lobby-setting{
+  padding-right:15px;
+  border-right:1px solid #a3895d;
+}
+.lobby-setting:last-child{border-right:0;padding-right:0}
+.setting-label{
+  margin-bottom:8px;
+  font:800 17px Cinzel,serif;
+  color:#2c1d12;
+}
+.black-select{
+  height:48px;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  color:#f2d276;
+  background:linear-gradient(#19140f,#060504);
+  border:2px solid #8d5a1b;
+  box-shadow:inset 0 0 0 2px #000;
+  font:700 17px Cinzel,serif;
+}
+.stake-control{
+  display:grid;
+  grid-template-columns:54px 1fr 50px;
+  gap:0;
+}
+.coin-icon,.currency{
+  height:48px;
+  display:grid;
+  place-items:center;
+  color:#f1be33;
+  background:#24160b;
+  border:1px solid #80531d;
+  font-weight:900;
+}
+.currency{
+  color:#f4d677;
+  font-size:18px;
+}
+.stake-control input{
+  height:48px;
+  text-align:center;
+  font-size:20px;
+  border-radius:0;
+}
+.stake-control .mini-dark{
+  grid-column:1/-1;
+  margin-top:6px;
+  height:34px;
+}
+.stake-setting small{
+  display:block;
+  color:#4d3421;
+  margin-top:7px;
+  font-size:10px;
+}
+.code-row{
+  display:grid;
+  grid-template-columns:1fr 52px;
+  gap:4px;
+}
+.room-code{
+  height:48px;
+  display:grid;
+  place-items:center;
+  color:#f3d477;
+  background:#0b0907;
+  border:2px solid #83541c;
+  font:800 21px Cinzel,serif;
+  letter-spacing:.09em;
+}
+.copy-icon{
+  margin:0;
+  font-size:20px;
+  background:linear-gradient(#282119,#080604);
+}
+.invite-link{
+  width:100%;
+  margin-top:7px;
+  padding:10px 8px;
+  background:linear-gradient(#231c14,#080604);
+  font-size:12px;
+}
+
+/* PLAYER BAR */
+.players-titlebar{
+  min-height:56px;
+  margin-top:10px;
+  padding:8px 13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.players-titlebar strong{
+  font-size:20px;
+}
+.shuffle-btn{
+  padding:10px 17px;
+  background:linear-gradient(#92180e,#420704);
+  font-size:13px;
+}
+
+.players-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 285px;
+  min-height:305px;
+}
+.lobby-players{padding:18px 20px}
+.lobby-player{
+  min-height:53px;
+  padding:7px 7px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #ae946c;
+}
+.lobby-player-info{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  grid-template-rows:auto auto;
+  column-gap:12px;
+  align-items:center;
+}
+.order-number{
+  grid-row:1/3;
+  width:34px;height:34px;
+  display:grid;place-items:center;
+  color:#efcf6a;
+  background:#2d1b0e;
+  border:1px solid #98641f;
+  box-shadow:inset 0 0 0 2px #130b05;
+  font-weight:900;
+}
+.lobby-player-info strong{
+  font:700 16px Cinzel,serif;
+}
+.lobby-player-info small{
+  font-size:9px;color:#6d5434
+}
+.order-controls{display:flex;gap:5px}
+.order-btn{
+  width:36px;height:34px;
+  color:#f3d270;
+  background:linear-gradient(#6b3b12,#2a1408);
+  border:1px solid #8c591c;
+  font-size:17px;
+}
+.players-help{
+  border-left:1px solid #a78a60;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+.ghost-dice{
+  font-size:104px;
+  line-height:1;
+  opacity:.22;
+  filter:sepia(1);
+}
+.players-help p{
+  margin:8px 0 0;
+  font:700 14px/1.55 Cinzel,serif;
+  color:#4a2c1a;
+}
+.start-btn{
+  display:block;
+  width:465px;
+  max-width:90%;
+  padding:18px;
+  margin:14px auto 0;
+  font-size:22px;
+  background:linear-gradient(#a31b10,#480704);
+  border-width:2px;
+}
+.hint{
+  min-height:20px;
+  text-align:center;
+  margin:8px 0 0;
+  color:#c9a956;
+  font-size:11px;
+}
+
+/* GAME */
+.duel-title{
+  display:flex;align-items:center;justify-content:space-between
+}
+.game-topline{
+  display:flex;justify-content:space-between;
+  padding:0 4px 8px;color:#c9a955;
+  font-size:11px;font-weight:800
+}
+.players{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+  gap:7px;
+}
+.player{
+  min-height:68px;
+  padding:10px;
+  color:#e0bf67;
+  background:linear-gradient(#17100b,#080604);
+  border:1px solid #76501d;
+  box-shadow:inset 0 0 0 2px #0b0704;
+}
+.player.active{
+  border-color:#e5a62b;
+  box-shadow:0 0 14px #c67b18aa,inset 0 0 0 2px #0b0704;
+}
+.player.eliminated{opacity:.32}
+.player small,.player span{display:block;font-size:9px}
+.player strong{display:block;margin:5px 0;font:700 15px Cinzel,serif}
+.pre-roll-actions{display:flex;justify-content:flex-end;margin:8px 0}
+.game-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:10px
+}
+.game-card{padding:18px;min-height:390px}
+.center{text-align:center}
+.number{
+  margin:12px 0;
+  color:#68130b;
+  font:900 clamp(86px,10vw,145px)/1 Cinzel,serif;
+}
+.mode-text,.stake-text,.turn-text{
+  margin:6px 0;font-size:11px;font-weight:900
+}
+.stake-text{color:#744509}
+.turn-text{color:#8e110a}
+.roll-btn{
+  width:min(350px,100%);
+  padding:18px;
+  margin-top:12px;
+  font-size:20px;
+  background:linear-gradient(#a31b10,#4a0704)
+}
+.rolling{animation:shake .48s}
+@keyframes shake{25%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-3deg)}}
+.roll-result{height:36px;margin-top:9px;font-size:27px;font-weight:900}
+.history{max-height:355px;overflow:auto}
+.history div{padding:10px;border-bottom:1px solid #a68b61}
+.history strong{color:#68130c}.history-out{color:#a20d0d;font-weight:900}
+
+/* RESULT */
+.result-card{
+  max-width:650px;margin:25px auto;padding:25px
+}
+.result-emoji{font-size:74px}
+.result-card h2{
+  color:#64120c;
+  font:900 30px Cinzel,serif
+}
+.result-summary{
+  margin:20px 0;padding:13px;border:1px solid #947244
+}
+.summary-row{
+  display:flex;justify-content:space-between;gap:15px;padding:6px
+}
+
+/* RIGHT */
+.right-column{padding:12px;min-height:710px}
+.side-box{
+  margin-bottom:13px;
+  background:#090705;
+  border:1px solid #7d511b;
+  box-shadow:inset 0 0 0 2px #171008;
+}
+.side-title{
+  padding:10px 13px;
+  font-size:18px
+}
+.profile{
+  min-height:105px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  gap:13px
+}
+.profile-orb{
+  width:66px;height:66px;
+  display:grid;place-items:center;
+  border:2px solid #956321;
+  border-radius:50%;
+  background:#151515;
+  font-size:30px
+}
+.profile strong{
+  display:block;font:700 18px Cinzel,serif
+}
+.profile span{
+  display:block;margin-top:7px;color:#4dd43e;font-size:13px
+}
+.side-info-body{padding:12px 14px}
+.side-info-body p{
+  margin:13px 0;
+  color:#d2b05e;
+  font-size:12px
+}
+.side-info-body p span{color:#bd9851}
+.side-info-body strong{float:right;color:#ead179}
+.right-art{
+  height:270px;
+  margin-top:10px;
+  border:1px solid #71491a;
+  background:url("assets/right-dice.jpg") center/cover no-repeat;
+  box-shadow:inset 0 0 25px #000;
+}
+
+/* toast */
+.toast{
+  position:fixed;z-index:100;bottom:24px;left:50%;
+  transform:translate(-50%,20px);
+  opacity:0;
+  padding:12px 18px;
+  color:#f5d66b;
+  background:#1c0b07;
+  border:1px solid #a36a20;
+  transition:.2s
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* preserve the 1536 desktop composition; responsive fallback */
+@media(max-width:1150px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .right-column{display:none}
+}
+@media(max-width:760px){
+  .hero{aspect-ratio:1536/360}
+  .layout{display:block;padding:5px}
+  .left-column{min-height:auto}
+  .left-art{display:none}
+  .mode-rail{display:grid;grid-template-columns:1fr 1fr}
+  .mode{min-height:78px;grid-template-columns:45px 1fr;padding:8px}
+  .mode-symbol{font-size:28px}
+  .mode-copy strong{font-size:14px}
+  .center-column{margin-top:6px}
+  .home-grid,.game-grid{grid-template-columns:1fr}
+  .lobby-settings{grid-template-columns:1fr}
+  .lobby-setting{border-right:0;border-bottom:1px solid #a3895d;padding:10px 0}
+  .players-panel{grid-template-columns:1fr}
+  .players-help{display:none}
+  .players-titlebar{align-items:flex-start;gap:8px;flex-direction:column}
+  .start-btn{width:94%}
+}
+
+
+/* ==========================================================
+   V11 — closer to the approved fantasy mockup
+   Ornate beveled panels, corner ornaments and fantasy icons
+   ========================================================== */
+
+/* Layered metallic frame helper */
+.frame,
+.parchment,
+.mode,
+.side-box,
+.titlebar,
+.players-titlebar,
+.red-btn,
+.dark-btn,
+.mini-dark,
+.invite-link,
+.shuffle-btn,
+.start-btn,
+.roll-btn,
+.copy-icon,
+.black-select {
+  position: relative;
+}
+
+/* tiny ornamental corner accents */
+.frame::before,
+.frame::after,
+.parchment::before,
+.parchment::after,
+.side-box::before,
+.side-box::after {
+  content:"";
+  position:absolute;
+  width:13px;
+  height:13px;
+  pointer-events:none;
+  z-index:3;
+}
+.frame::before,.parchment::before,.side-box::before {
+  top:3px; left:3px;
+  border-top:2px solid #d9a83e;
+  border-left:2px solid #d9a83e;
+}
+.frame::after,.parchment::after,.side-box::after {
+  right:3px; bottom:3px;
+  border-right:2px solid #d9a83e;
+  border-bottom:2px solid #d9a83e;
+}
+
+/* forged outer framing, more like the mockup */
+.frame{
+  border:1px solid #a06b21;
+  outline:2px solid #170d06;
+  box-shadow:
+    inset 0 0 0 2px #050302,
+    inset 0 0 0 4px #8b5a1c,
+    inset 0 0 0 6px #24170b,
+    0 12px 34px #000;
+}
+
+.left-column,.right-column{
+  background:
+    linear-gradient(90deg,#060403,#120b06 50%,#060403),
+    url("assets/dark.jpg") center/cover;
+}
+
+/* red title strips with beveled metal edge */
+.titlebar,.players-titlebar,.side-title{
+  border:1px solid #cc8a26;
+  outline:2px solid #120705;
+  box-shadow:
+    inset 0 1px 0 #d95d32aa,
+    inset 0 -2px 0 #250300,
+    inset 0 0 0 3px #4e0906,
+    0 2px 0 #090402;
+  background:
+    radial-gradient(circle at 50% -30%,#a12d1d 0,#731109 38%,#3a0604 100%);
+  text-shadow:0 1px 0 #000,0 0 8px #000;
+}
+
+/* decorative arrow/diamond end caps on major bars */
+.titlebar::before,
+.players-titlebar::before,
+.side-title::before{
+  content:"◆";
+  color:#e8b84d;
+  font-size:10px;
+  margin-right:8px;
+  text-shadow:0 0 5px #f5a51c;
+}
+
+/* parchment now gets heavier carved frame */
+.parchment{
+  border:1px solid #8a5a20;
+  outline:2px solid #2b180b;
+  box-shadow:
+    inset 0 0 0 2px #ecd8b0,
+    inset 0 0 0 4px #a5793e,
+    inset 0 0 26px #69451b55,
+    0 1px 0 #c99b4a;
+}
+
+/* mode cards: slanted, deep, ornate */
+.mode{
+  overflow:hidden;
+  border:1px solid #b77a25;
+  clip-path:polygon(3% 0,97% 0,100% 12%,100% 88%,97% 100%,3% 100%,0 88%,0 12%);
+  background:
+    linear-gradient(180deg,#220d08 0,#0c0705 55%,#050403 100%);
+  box-shadow:
+    inset 0 0 0 2px #140704,
+    inset 0 0 0 4px #7c4b17,
+    inset 0 8px 18px #0008,
+    0 4px 12px #000;
+}
+.mode.active{
+  background:
+    radial-gradient(circle at 55% 5%,#b1271b 0,#75110a 40%,#360604 100%);
+  border-color:#ffbd3b;
+  box-shadow:
+    inset 0 0 0 2px #250704,
+    inset 0 0 0 4px #c17d22,
+    inset 0 1px 0 #ff906d88,
+    0 0 14px #dd7c18aa;
+}
+.mode::after{
+  content:"";
+  position:absolute;
+  left:12px;right:12px;bottom:7px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#dca641,transparent);
+  opacity:.7;
+}
+
+/* Real CSS crossed swords icon */
+.mode-symbol.sword-icon{
+  width:58px;height:58px;position:relative;display:block;
+}
+.sword-icon i{
+  position:absolute;
+  left:27px;top:5px;
+  width:5px;height:49px;
+  border-radius:2px;
+  background:linear-gradient(90deg,#71511c,#fff0a0 48%,#93631f);
+  box-shadow:0 0 3px #000;
+}
+.sword-icon i::before{
+  content:"";
+  position:absolute;
+  width:19px;height:5px;
+  left:-7px;bottom:8px;
+  background:linear-gradient(#efca65,#82561d);
+  border:1px solid #5f3b10;
+}
+.sword-icon i::after{
+  content:"";
+  position:absolute;
+  width:8px;height:8px;
+  left:-2px;bottom:-4px;
+  transform:rotate(45deg);
+  background:#ad711f;
+  border:1px solid #5a340d;
+}
+.sword-icon i:first-child{transform:rotate(43deg)}
+.sword-icon i:last-child{transform:rotate(-43deg)}
+
+/* 3-person group icon drawn in CSS */
+.mode-symbol.group-icon{
+  width:64px;height:54px;display:block;position:relative;
+}
+.group-icon i{
+  position:absolute;
+  width:18px;height:18px;
+  top:7px;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#ffe69a,#d49a2a 65%,#7f4d13);
+  border:1px solid #654010;
+  box-shadow:0 1px 2px #000;
+}
+.group-icon i::after{
+  content:"";
+  position:absolute;
+  width:25px;height:17px;
+  left:-4px;top:17px;
+  border-radius:13px 13px 4px 4px;
+  background:linear-gradient(#eab947,#a86d18);
+  border:1px solid #654010;
+}
+.group-icon i:nth-child(1){left:3px;top:13px;transform:scale(.86)}
+.group-icon i:nth-child(2){left:23px;top:3px;z-index:2}
+.group-icon i:nth-child(3){right:1px;top:13px;transform:scale(.86)}
+
+/* Buttons — stronger beveled RPG UI */
+.red-btn,.shuffle-btn,.start-btn,.roll-btn{
+  clip-path:polygon(2% 0,98% 0,100% 18%,100% 82%,98% 100%,2% 100%,0 82%,0 18%);
+  border:1px solid #e0a033;
+  background:
+    linear-gradient(180deg,#b02317 0,#7e1009 44%,#4b0705 55%,#250302 100%);
+  box-shadow:
+    inset 0 0 0 2px #270704,
+    inset 0 0 0 4px #9d621b,
+    inset 0 1px 0 #ff9d7288,
+    0 4px 9px #000;
+  text-shadow:0 1px 1px #000;
+}
+.red-btn:hover,.shuffle-btn:hover,.start-btn:hover,.roll-btn:hover:not(:disabled){
+  filter:brightness(1.12);
+  box-shadow:
+    inset 0 0 0 2px #310804,
+    inset 0 0 0 4px #c38324,
+    0 0 12px #d9841c88;
+}
+
+.dark-btn,.mini-dark,.invite-link,.copy-icon,.black-select{
+  border:1px solid #bd8128;
+  background:
+    linear-gradient(180deg,#292117,#12100c 45%,#060504 55%,#020202);
+  box-shadow:
+    inset 0 0 0 2px #000,
+    inset 0 0 0 4px #513414,
+    0 3px 7px #000;
+}
+
+/* lobby controls gain individual carved frames */
+.lobby-setting{
+  position:relative;
+  padding:7px 13px 10px 0;
+}
+.lobby-setting::after{
+  content:"";
+  position:absolute;
+  top:2px;bottom:2px;right:-3px;width:1px;
+  background:linear-gradient(#6b4a20,#d4b16e,#6b4a20);
+}
+.lobby-setting:last-child::after{display:none}
+
+.stake-control input,.room-code{
+  box-shadow:
+    inset 0 2px 6px #6b4d2833,
+    inset 0 0 0 1px #c19b5a;
+}
+
+/* player list rows like inset parchment slots */
+.lobby-player{
+  margin-bottom:5px;
+  border:1px solid #b79a6d;
+  background:linear-gradient(90deg,#d6bf96aa,#ead8b6aa,#d0b487aa);
+  box-shadow:inset 0 1px 0 #f5e4c5,inset 0 -1px 0 #93764b55;
+}
+.order-number{
+  border:1px solid #b47720;
+  border-radius:3px;
+  background:linear-gradient(#5c3414,#28170b);
+  box-shadow:inset 0 0 0 2px #160b05,0 2px 3px #0006;
+}
+.order-btn{
+  border-radius:3px;
+  border:1px solid #d09a36;
+  background:linear-gradient(#744517,#32190a);
+  box-shadow:inset 0 0 0 2px #180b05,0 2px 3px #0005;
+  text-shadow:0 1px 0 #000;
+}
+
+/* Profile icon drawn instead of chess pawn */
+.profile-orb{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle,#242424,#090909 70%);
+  box-shadow:
+    inset 0 0 0 3px #0b0805,
+    0 0 0 1px #c38325;
+}
+.person-head{
+  position:absolute;
+  width:23px;height:23px;
+  border-radius:50%;
+  top:12px;left:19px;
+  background:linear-gradient(#cfd3d6,#73777a);
+  box-shadow:inset 0 0 4px #fff6;
+}
+.person-body{
+  position:absolute;
+  width:43px;height:28px;
+  left:9px;bottom:8px;
+  border-radius:24px 24px 8px 8px;
+  background:linear-gradient(#aeb3b7,#4f5355);
+}
+
+/* Right-side info icons */
+.side-info-body p{
+  min-height:25px;
+  display:grid;
+  grid-template-columns:27px 1fr auto;
+  align-items:center;
+  gap:4px;
+  margin:6px 0;
+}
+.side-info-body p strong{float:none;text-align:right}
+.info-icon{
+  width:22px;height:22px;
+  display:grid;place-items:center;
+  color:#efbd40;
+  font-size:12px;
+  border:1px solid #654112;
+  border-radius:50%;
+  background:radial-gradient(circle,#38220f,#0a0704);
+  box-shadow:inset 0 0 0 2px #120b05;
+}
+
+/* Better section separation */
+.players-panel{
+  border-top:0;
+}
+.players-help{
+  background:
+    linear-gradient(#dfc89d99,#cbb18199),
+    url("assets/parchment.jpg") center/cover;
+}
+.ghost-dice{
+  text-shadow:0 2px 2px #fff7;
+}
+
+/* Slightly bigger/right proportions on desktop like approved image */
+@media(min-width:1151px){
+  .layout{grid-template-columns:315px minmax(0,1fr) 326px}
+  .left-column,.right-column{min-height:720px}
+  .center-column{min-height:720px}
+}
+
+
+/* ==========================================================
+   GOLD COIN ICON PATCH
+   Replaces the € symbol without changing any other layout.
+   ========================================================== */
+.currency.coin-stack-icon{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%,#29190b,#0b0704 72%);
+  color:transparent;
+}
+.coin-stack-icon i,
+.mini-coins i{
+  position:absolute;
+  display:block;
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 45% 34%,#fff3a0 0 11%,#f6ca3c 18%,#d58e12 57%,#8a4e08 82%);
+  border:1px solid #6d3b06;
+  box-shadow:
+    inset 0 -2px 0 #8a4d08,
+    inset 0 1px 0 #fff0a055,
+    0 1px 2px #0008;
+}
+
+/* Large coin stack beside the stake input */
+.coin-stack-icon i:nth-child(1){
+  width:22px;height:9px;left:13px;top:27px;
+}
+.coin-stack-icon i:nth-child(2){
+  width:22px;height:9px;left:13px;top:20px;
+}
+.coin-stack-icon i:nth-child(3){
+  width:22px;height:9px;left:13px;top:13px;
+}
+
+/* Small inline coin stack in Raum-Infos */
+#sideStake{
+  display:inline-flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:7px;
+}
+.mini-coins{
+  display:inline-block;
+  position:relative;
+  width:26px;
+  height:19px;
+  vertical-align:middle;
+  flex:0 0 26px;
+}
+.mini-coins i:nth-child(1){
+  width:16px;height:7px;left:5px;top:11px;
+}
+.mini-coins i:nth-child(2){
+  width:16px;height:7px;left:5px;top:6px;
+}
+.mini-coins i:nth-child(3){
+  width:16px;height:7px;left:5px;top:1px;
+}
+.stake-number{
+  display:inline-block;
+  min-width:1ch;
+}
+
+
+/* ==========================================================
+   FINAL KORREKTUR – Originale funktionierende Struktur bleibt.
+   Nur sichtbarer Rand/Clipping des Fantasy-Headers wird behoben.
+   ========================================================== */
+html,body{
+  overflow-x:auto;
+}
+.page{
+  min-height:100vh;
+  padding-top:12px;
+  overflow:visible;
+}
+.hero{
+  width:min(1536px,calc(100% - 24px));
+  aspect-ratio:1536/255;
+  margin:0 auto;
+  background-image:url("assets/hero.jpg");
+  background-position:center center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  overflow:visible;
+  box-shadow:0 10px 30px #000;
+}
+.layout{
+  width:min(1536px,calc(100% - 24px));
+  overflow:visible;
+}
+/* Mode buttons stay LEFT and fully clickable */
+.left-column,
+.mode-rail,
+.mode{
+  position:relative;
+}
+.mode{
+  z-index:5;
+  pointer-events:auto;
+}
+/* Never place a dark veil over the page/header */
+.page::before,
+.page::after,
+.hero::before,
+.hero::after{
+  pointer-events:none;
+}
+
+/* FINAL3 */
+body{overflow-x:auto!important}.page{padding-top:0!important;overflow:visible!important}
+.hero{width:min(1536px,calc(100vw - 32px))!important;height:auto!important;aspect-ratio:1536/255!important;margin:0 auto!important;background:url("assets/hero.jpg") center/100% 100% no-repeat!important;overflow:visible!important;clip-path:none!important;opacity:1!important}
+.hero:before,.hero:after,.page:before,.page:after,.overlay,.dark-overlay,.hero-overlay,.page-overlay{display:none!important}
+.layout{width:min(1536px,calc(100vw - 32px))!important;margin:0 auto 32px!important;overflow:visible!important}
+.mode{pointer-events:auto!important;cursor:pointer!important;z-index:20!important}
+.mode.active{box-shadow:inset 0 0 0 2px #f0b83b,0 0 12px #c66f12!important}
+.home-grid,.create-join,.forms-grid,.start-grid{display:grid!important;grid-template-columns:1fr!important;gap:14px!important}
+.home-grid>*{width:100%!important;min-width:0!important}
+#lobby .mode-selector,#lobby .mode-options,#lobby .mode-buttons{display:none!important}
+#lobbyModeLabel{display:flex!important;align-items:center!important;justify-content:center!important;min-height:58px;color:#f2d36f;font-weight:800;text-transform:uppercase}
+.selected-mode-panel{margin:10px;padding:10px;text-align:center;background:#dfc79b;border:4px double #9c692a;color:#321b0d}
+.selected-mode-panel span{display:block;font-weight:800}.selected-mode-panel strong{margin:8px auto 0;max-width:340px;background:#0b0906;border:2px solid #9c692a}
+
+
+/* =========================================================
+   FINAL4 – HEADER NICHT ABSCHNEIDEN + SAUBERES PERGAMENT
+   ========================================================= */
+
+/* Der Header bekommt seine echte Bildhöhe und zusätzlichen Abstand nach unten.
+   Dadurch wird weder oben noch am unteren roten Diamanten etwas abgeschnitten. */
+.page{
+  padding-top:14px !important;
+  overflow:visible !important;
+}
+
+.hero{
+  width:min(1540px,calc(100vw - 40px)) !important;
+  height:auto !important;
+  aspect-ratio:1540 / 270 !important;
+  margin:0 auto 14px !important;
+  background-image:url("assets/hero-full.jpg") !important;
+  background-position:center center !important;
+  background-size:100% 100% !important;
+  background-repeat:no-repeat !important;
+  overflow:visible !important;
+  clip-path:none !important;
+}
+
+/* Hauptbereich beginnt klar UNTER dem Diamanten. */
+.layout{
+  width:min(1540px,calc(100vw - 40px)) !important;
+  margin:0 auto 34px !important;
+  padding-top:0 !important;
+  overflow:visible !important;
+}
+
+/* Keine Ebene darf über dem Header liegen. */
+.hero::before,.hero::after,
+.page::before,.page::after,
+.overlay,.dark-overlay,.hero-overlay,.page-overlay{
+  display:none !important;
+  content:none !important;
+}
+
+/* Raum erstellen und Raum beitreten bleiben untereinander. */
+.home-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:14px !important;
+}
+.home-grid > .home-card{
+  width:100% !important;
+}
+
+/* Entfernt die eingebrannten Namen/Pfeile aus dem alten parchment.jpg. */
+.parchment{
+  background:
+    linear-gradient(rgba(228,208,167,.92),rgba(205,177,130,.95)),
+    url("assets/parchment-clean.jpg") center/cover !important;
+}
+
+/* Linke Moduswahl bleibt die einzige echte Auswahl. */
+.mode-rail .mode{
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  z-index:20 !important;
+}
+
+/* Lobby zeigt nur den ausgewählten Modus als Text. */
+#lobbyModeLabel{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:58px !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+}
+
+/* Mobile/kleinere Displays: Header bleibt vollständig sichtbar statt gecroppt. */
+@media(max-width:900px){
+  .hero{
+    width:900px !important;
+    min-width:900px !important;
+    aspect-ratio:1540 / 270 !important;
+  }
+  .layout{
+    width:900px !important;
+    min-width:900px !important;
+  }
+}
+
+
+/* ==========================================================
+   FINAL5 – FREISTEHENDER HEADER-DIAMANT
+   Das Hauptfenster beginnt erst UNTER dem vollständigen Diamanten.
+   ========================================================== */
+
+:root{
+  --header-gap: 34px;
+}
+
+.page{
+  padding-top:14px !important;
+  overflow:visible !important;
+}
+
+/* Complete header image, no clipping. */
+.hero{
+  position:relative !important;
+  z-index:10 !important;
+  width:min(1540px,calc(100vw - 40px)) !important;
+  height:auto !important;
+  aspect-ratio:1540 / 270 !important;
+  margin:0 auto var(--header-gap) !important;
+  background-image:url("assets/hero-full.jpg") !important;
+  background-size:100% 100% !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  overflow:visible !important;
+  clip-path:none !important;
+}
+
+/* No pseudo-element or overlay may cover the diamond. */
+.hero::before,.hero::after,
+.page::before,.page::after,
+.layout::before,.layout::after,
+.overlay,.dark-overlay,.hero-overlay,.page-overlay{
+  display:none !important;
+  content:none !important;
+}
+
+/* The whole 3-column body is physically below the header clearance. */
+.layout{
+  position:relative !important;
+  z-index:2 !important;
+  width:min(1540px,calc(100vw - 40px)) !important;
+  margin:0 auto 36px !important;
+  overflow:visible !important;
+  transform:none !important;
+}
+
+/* Prevent any upper border from being pulled into the diamond zone. */
+.left-column,.main-column,.right-column,
+.sidebar-left,.sidebar-right,.center-column{
+  margin-top:0 !important;
+  transform:none !important;
+}
+
+/* Keep the requested stacked forms. */
+.home-grid,.create-join,.forms-grid,.start-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:14px !important;
+}
+
+/* Left mode buttons remain real controls. */
+.mode{
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+
+/* Smaller screens keep the complete art; horizontal scrolling is preferable to cropping. */
+@media(max-width:900px){
+  body{overflow-x:auto !important}
+  .hero,.layout{
+    width:900px !important;
+    min-width:900px !important;
+  }
+  .hero{
+    aspect-ratio:1540 / 270 !important;
+    margin-bottom:30px !important;
+  }
+}
+
+/* FANTASY SLOT */
+.slot-mode small{display:block}.slot-shell{margin:12px;padding:18px;background:linear-gradient(#dcc28d,#b88c4b);border:4px double #8b5515;color:#321507}.slot-title{text-align:center;font:900 30px Georgia;color:#ffe08a;text-shadow:0 2px #000;background:linear-gradient(#7e130d,#2b0503);border:4px double #d79b2c;padding:10px;margin:10px 0}.slot-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.slot-top>div{background:#090806;border:2px solid #9b681d;padding:8px;text-align:center;color:#eabf55}.slot-top small{display:block}.slot-top strong{font-size:22px;color:#fff0a5}.slot-machine{background:#130b05;border:8px ridge #b77b20;padding:10px;box-shadow:inset 0 0 28px #000}.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;background:#000;padding:5px}.reel{display:grid;grid-template-rows:repeat(3,1fr);gap:5px}.symbol{height:112px;display:flex;align-items:center;justify-content:center;font-size:54px;background:radial-gradient(circle,#f2d99e,#a16d2f);border:3px ridge #d6a445;text-shadow:0 2px 2px #000}.symbol.win{animation:slotGlow .55s alternate infinite}@keyframes slotGlow{to{filter:brightness(1.6);box-shadow:inset 0 0 20px #fff,0 0 16px #ffbf00}}.reel.spinning .symbol{animation:reelBlur .11s linear infinite}@keyframes reelBlur{50%{transform:translateY(7px);filter:blur(2px)}}.slot-controls{display:flex;justify-content:center;gap:12px;margin:14px}.slot-controls button{min-width:64px;padding:12px 18px;font-size:20px;font-weight:900;color:#ffe177;background:linear-gradient(#a61c11,#510603);border:3px ridge #d69b2a}.slot-controls .slot-spin{min-width:260px;font-size:25px}.slot-message{text-align:center;font-weight:900;font-size:20px;margin:12px;color:#57110b}.slot-info,.slot-free{text-align:center;background:#ead3a4;border:2px solid #9d6b29;padding:9px}.slot-free{margin-top:8px;color:#7b0e08;font-size:18px}
+
+
+/* SLOT2 — third left game mode, matching the existing fantasy rail */
+.slot-mode-btn{
+  min-height:94px; display:grid; grid-template-columns:74px 1fr; align-items:center;
+  text-align:left; padding:10px 12px; margin:0; color:#f0cf69;
+  background:linear-gradient(180deg,#1c150f,#090705); border:1px solid #b77925;
+  box-shadow:inset 0 0 0 3px #170805,inset 0 0 0 5px #8c5d1d,0 0 12px #000;
+  position:relative; font-family:inherit;
+}
+.slot-mode-btn.active{background:linear-gradient(180deg,#75120b,#340704);border-color:#efb12e;box-shadow:inset 0 0 0 3px #1a0804,inset 0 0 0 5px #bb751f,0 0 14px #d77a1955}
+.slot-mode-symbol{font-size:40px;text-align:center;filter:sepia(1) saturate(1.35)}
+.slot-mode-btn .mode-copy strong{display:block;font:800 19px Cinzel,serif;line-height:1.1}
+.slot-mode-btn .mode-copy small{display:block;margin-top:6px;font-size:11px;color:#e2c47b;line-height:1.3}
+#slot .duel-title small{font-size:11px;letter-spacing:.12em;color:#e2c47b}
+#slot .slot-shell{margin:12px 4px 4px}
+@media(max-width:760px){.slot-mode-btn{min-height:78px;grid-template-columns:45px 1fr;padding:8px}.slot-mode-symbol{font-size:28px}.slot-mode-btn .mode-copy strong{font-size:14px}}
+
+/* SLOT V2 — mechanical reel cabinet */
+#slot .slot-deluxe{background:linear-gradient(180deg,#d7b66f,#9b672c 52%,#5b2a0d);border:5px ridge #e0ad3c;box-shadow:inset 0 0 0 4px #3a1307,inset 0 0 34px #3a160a,0 8px 24px #000}
+#slot .slot-marquee{display:grid;grid-template-columns:55px 1fr 55px;align-items:center;text-align:center;margin:10px 0;padding:9px 15px;background:radial-gradient(circle at 50% 20%,#b62a17,#650b06 52%,#240301);border:5px ridge #d9a233;box-shadow:inset 0 0 18px #000,0 3px 0 #2b0d04;color:#ffd96d;text-shadow:0 2px 2px #000}
+#slot .slot-marquee>span{font-size:36px;color:#ffd866;text-shadow:0 0 10px #ff9c00}
+#slot .slot-marquee small,#slot .slot-marquee em{display:block;font:700 10px Inter,sans-serif;letter-spacing:.16em;color:#f3c967}
+#slot .slot-marquee b{display:block;font:900 clamp(24px,3vw,37px) Cinzel,serif;line-height:1.05;margin:3px 0}
+#slot .slot-stage{display:grid;grid-template-columns:28px minmax(0,1fr) 28px;align-items:center;gap:4px}
+#slot .payline-numbers{font:900 11px/3.05 Inter,sans-serif;text-align:center;color:#ffe17a;text-shadow:0 1px #000}
+#slot .slot-machine{position:relative;overflow:hidden;border:9px ridge #c68a24;padding:7px;background:linear-gradient(90deg,#1d0903,#000,#1d0903);box-shadow:inset 0 0 0 3px #4b2209,inset 0 0 30px #000,0 0 0 2px #371506}
+#slot .reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;padding:5px;background:#080401;overflow:hidden}
+#slot .reel{height:336px;position:relative;overflow:hidden;display:block;background:#d6a75d;border:3px ridge #e5b64e;box-shadow:inset 0 0 18px #5b2d0a}
+#slot .reel-strip{position:absolute;left:0;right:0;top:0;will-change:transform;transform:translateY(-336px)}
+#slot .symbol{height:112px;border:0;border-bottom:2px solid #8e581d;background:radial-gradient(ellipse at 50% 45%,#ffe7a8 0,#d4a258 62%,#9a6326 100%);font-size:52px;text-shadow:0 2px 2px #5b3213;box-shadow:inset 0 0 13px #fff3c333}
+#slot .reel.spinning .symbol{animation:none;filter:blur(1.3px);transform:scaleY(1.05)}
+#slot .reel.spinning{box-shadow:inset 0 14px 24px #2c1209,inset 0 -14px 24px #2c1209}
+#slot .reel-shine{position:absolute;pointer-events:none;inset:7px;background:linear-gradient(180deg,#fff5cf24,transparent 22%,transparent 76%,#2c090833);box-shadow:inset 0 112px 20px -20px #2b0d0833,inset 0 -112px 20px -20px #2b0d0844}
+#slot .symbol.win{position:relative;z-index:2;animation:slotGlow .45s alternate infinite;background:radial-gradient(circle,#fff8c9,#e6ae37)}
+#slot .slot-meter{display:flex;justify-content:center;gap:4px;margin:4px auto 10px;max-width:520px}
+#slot .slot-meter span{min-width:120px;padding:6px 12px;text-align:center;background:#120804;border:2px ridge #ad7722;color:#f5cf62;font:800 11px Inter,sans-serif}
+#slot .slot-controls .slot-spin{position:relative;min-width:290px;border-radius:3px;box-shadow:inset 0 1px #e05b3b,0 4px 0 #330400,0 0 16px #a61c1166}
+#slot .slot-controls .slot-spin:active{transform:translateY(3px);box-shadow:inset 0 1px #e05b3b,0 1px 0 #330400}
+#slot .slot-controls button:disabled{filter:grayscale(.6);opacity:.65}
+#slot .slot-free{animation:freePulse .7s alternate infinite;box-shadow:0 0 18px #ffbd2e88}
+@keyframes freePulse{to{filter:brightness(1.22)}}
+@media(max-width:760px){#slot .slot-stage{grid-template-columns:18px minmax(0,1fr) 18px}#slot .reel{height:240px}#slot .symbol{height:80px;font-size:34px}#slot .reel-strip{transform:translateY(-240px)}#slot .slot-marquee{grid-template-columns:30px 1fr 30px}#slot .slot-marquee>span{font-size:24px}#slot .slot-controls .slot-spin{min-width:170px}.slot-top strong{font-size:16px!important}#slot .slot-meter span{min-width:0;flex:1}}
+
+/* ==========================================================
+   BOOK OF DICE V3 — graphical cabinet matching approved mockup
+   ========================================================== */
+#slot{background:#080604}
+#slot>.titlebar{margin-bottom:6px}
+#slot .bod-cabinet{margin:0 8px 8px;padding:8px 10px 4px;background:
+ radial-gradient(circle at 50% 0,#51200a55,transparent 35%),
+ linear-gradient(#160b05,#050302 65%,#140a04);border:3px solid #9b651c;box-shadow:inset 0 0 0 2px #211006,inset 0 0 35px #000,0 0 0 1px #d4a13b}
+#slot .bod-marquee{height:105px;display:grid;grid-template-columns:55px 1fr 55px;align-items:center;text-align:center;
+ background:linear-gradient(90deg,#351407,#080402 15%,#120704 50%,#080402 85%,#351407);
+ border:5px ridge #b47720;box-shadow:inset 0 0 28px #000,0 5px 15px #000;position:relative;overflow:hidden}
+#slot .bod-marquee:before,#slot .bod-marquee:after{content:"";position:absolute;top:0;bottom:0;width:150px;background:repeating-linear-gradient(115deg,#c67e18 0 4px,#151006 4px 13px);opacity:.35}
+#slot .bod-marquee:before{left:-40px;transform:skewX(-20deg)}#slot .bod-marquee:after{right:-40px;transform:skewX(20deg)}
+#slot .bod-marquee b{display:block;position:relative;z-index:2;font:900 clamp(30px,4vw,54px) Cinzel,Georgia,serif;color:#ffd66a;letter-spacing:-2px;
+ text-shadow:0 3px #4d1800,0 0 4px #fff4b3,0 0 13px #e77400}
+#slot .bod-marquee b i{font-style:normal;color:#d50b16;text-shadow:0 0 8px #ffb42b}
+#slot .bod-marquee small{position:relative;z-index:2;color:#f9df77;font:800 12px Cinzel,serif}
+#slot .bod-wing{font-size:34px;color:#d99c2d;text-shadow:0 0 8px #ffae00;z-index:2}
+#slot .bod-stage{display:grid;grid-template-columns:34px minmax(0,1fr) 34px;gap:4px;align-items:stretch;margin-top:7px;
+ background:linear-gradient(90deg,#3b1607,#110704 8%,#110704 92%,#3b1607);padding:8px 4px;border:3px ridge #9d671d}
+#slot .bod-line-numbers{display:grid;grid-template-rows:repeat(10,1fr);gap:2px;align-items:center}
+#slot .bod-line-numbers b{display:flex;align-items:center;justify-content:center;min-height:23px;border:2px solid #5d3c12;background:#211006;color:#777;
+ font:900 12px Inter,sans-serif;box-shadow:inset 0 0 6px #000}
+#slot .bod-line-numbers b.active{background:var(--lc);color:white;border-color:#ffe5a0;text-shadow:0 1px 2px #000;box-shadow:0 0 8px var(--lc)}
+#slot .bod-reel-wrap{position:relative;min-width:0;background:#000;border:7px ridge #b47b26;box-shadow:inset 0 0 20px #000,0 0 12px #000}
+#slot .bod-reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;padding:0;background:#030201;overflow:hidden}
+#slot .bod-reels .reel{height:450px;position:relative;overflow:hidden;display:block;background:#060403;border-right:2px solid #9d681d;box-shadow:inset 0 0 22px #000}
+#slot .bod-reels .reel:last-child{border-right:0}
+#slot .bod-reels .reel-strip{position:absolute;left:0;right:0;top:0;will-change:transform}
+#slot .bod-symbol{height:150px!important;display:flex;align-items:center;justify-content:center;border:0!important;border-bottom:1px solid #4f2c0e!important;
+ background:radial-gradient(ellipse at center,#1b1108 0,#080402 62%,#020101 100%)!important;box-shadow:inset 0 0 20px #000!important;font-family:Cinzel,Georgia,serif}
+#slot .bod-symbol>span{display:flex;align-items:center;justify-content:center;width:88%;height:84%;filter:drop-shadow(0 4px 2px #000)}
+#slot .sym-letter{font:900 68px Cinzel,serif;-webkit-text-stroke:2px #3e1600;text-shadow:0 0 3px #fff,0 4px #501400}
+#slot .sym-A{color:#ff9a24}.sym-K{color:#e31d1d}.sym-Q{color:#39c75b}.sym-J{color:#2397ef}.sym-10{color:#d84ce8}
+#slot .sym-book{position:relative;width:92px!important;height:112px!important;border:5px ridge #c88a25;border-radius:5px;transform:rotate(-8deg);
+ background:linear-gradient(135deg,#4b1d07,#d98a20 45%,#5d2308);box-shadow:inset 0 0 14px #ffdc72,0 0 15px #e48b13}
+#slot .sym-book:before,#slot .sym-book:after{content:"";position:absolute;top:9px;bottom:9px;width:42%;border:2px solid #edc45c;background:repeating-linear-gradient(0deg,#6d320d 0 3px,#d98b22 3px 5px)}
+#slot .sym-book:before{left:5px}.sym-book:after{right:5px}#slot .sym-book i{z-index:3;color:#e1121c;font-size:34px;text-shadow:0 0 8px #ffd45d}
+#slot .sym-scarab{position:relative;width:105px!important;height:105px!important}
+#slot .sym-scarab:before{content:"";width:58px;height:72px;border-radius:48% 48% 42% 42%;background:linear-gradient(90deg,#0a77a2,#31b4ce 48%,#07547c);border:5px solid #d99b27;box-shadow:0 0 12px #d8991e}
+#slot .sym-scarab:after{content:"";position:absolute;width:104px;height:55px;border-radius:50%;border-top:15px solid #d8a32f;border-left:12px solid transparent;border-right:12px solid transparent}
+#slot .sym-scarab i{position:absolute;top:8px;width:24px;height:24px;border-radius:50%;background:#d31127;border:4px solid #e9b93b;z-index:2}
+#slot .sym-pharaoh{font-size:76px;color:#e8bd48;text-shadow:0 0 5px #ffdc74,0 5px #3a1805}
+#slot .sym-pyramid{font-size:90px;color:#e68b24;text-shadow:20px 7px #7b390d,-20px 7px #b55b16}
+#slot .sym-anubis{font-size:82px;color:#171717;-webkit-text-stroke:3px #d19b38;text-shadow:0 0 8px #dca83d}
+#slot .bod-reels .reel.spinning .bod-symbol{filter:blur(.55px);opacity:.96}
+#slot .bod-glass{position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,#fff4c80d 0 20%,transparent 34% 70%,#ffcf5b0a 82%);z-index:4}
+#slot .bod-paylines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:visible}
+#slot .payline-flash{filter:drop-shadow(0 0 6px currentColor);animation:payFlash .42s alternate infinite}@keyframes payFlash{to{opacity:.35}}
+#slot .bod-symbol.win{animation:slotWinGlow .45s alternate infinite!important}@keyframes slotWinGlow{to{filter:brightness(1.7) drop-shadow(0 0 14px #ffd128);box-shadow:inset 0 0 25px #ffc400!important}}
+#slot .bod-console{display:grid;grid-template-columns:1fr 1.05fr 1fr 1.55fr;gap:8px;align-items:stretch;padding:12px 10px 8px;
+ background:linear-gradient(#211108,#080403);border-top:4px ridge #9b641d}
+#slot .bod-stat,#slot .bod-bet{background:#0b0704;border:2px solid #70450f;padding:8px;text-align:center;color:#f2cc61;box-shadow:inset 0 0 12px #000}
+#slot .bod-stat small,#slot .bod-bet small{display:block;font:800 11px Cinzel,serif}.bod-stat strong{display:block;font-size:25px;color:#fff1a1;margin-top:4px}
+#slot .bod-bet>div{display:grid;grid-template-columns:42px 1fr 42px;margin-top:4px}.bod-bet button{background:#5f2407;color:#ffe07b;border:2px ridge #b77a22;font-size:22px;font-weight:900}.bod-bet strong{display:flex;align-items:center;justify-content:center;color:#fff1a1;border-top:1px solid #71450e;border-bottom:1px solid #71450e}
+#slot .bod-spin{font:900 29px Cinzel,serif;color:#ffe48b;background:linear-gradient(#c12217,#6d0805 55%,#390302);border:7px ridge #d89a2b;border-radius:18px;
+ text-shadow:0 2px #4a0a00;box-shadow:inset 0 0 18px #ef3b20,0 4px 0 #2b0803,0 0 12px #b3170b;cursor:pointer}
+#slot .bod-spin:active{transform:translateY(3px)}
+#slot .bod-subcontrols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:0 80px 8px;background:#080403}
+#slot .bod-subcontrols button{padding:8px;background:linear-gradient(#2b1609,#0b0603);color:#f3d16e;border:3px ridge #9d681e;font:800 12px Cinzel,serif}
+#slot .bod-subcontrols button.active{background:#6f0d08;box-shadow:0 0 10px #e05a20}
+#slot .bod-message{text-align:center;background:#080403;color:#f0c45e;padding:5px;font:700 12px Inter,sans-serif}
+#slot .bod-paytable{margin:5px 12px;padding:10px;text-align:center;background:#160b05;border:2px solid #9e681d;color:#f5d57a}.bod-paytable span{display:block;margin-top:4px;color:#dbc18b}
+#slot .bod-footer{text-align:center;padding:7px;color:#dcb553;letter-spacing:.18em;font:800 12px Cinzel,serif;background:#080403}
+#slot .slot-free{margin:4px 12px;background:#3a0805;color:#ffe177;border:2px solid #c88a22}
+@media(max-width:900px){#slot .bod-reels .reel{height:330px}#slot .bod-symbol{height:110px!important}#slot .sym-letter{font-size:48px}#slot .bod-console{grid-template-columns:1fr 1fr}#slot .bod-spin{min-height:70px}#slot .bod-subcontrols{padding:0 15px 8px;gap:8px}}
+
+/* BOOK OF DICE V5 — statische Endanzeige + immer 10 aktive Linien */
+#slot .bod-reels .reel.reel-static{
+  height:450px!important;
+  display:grid!important;
+  grid-template-rows:repeat(3,150px)!important;
+  overflow:hidden!important;
+}
+#slot .bod-reels .reel.reel-static>.bod-symbol{
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  margin:0!important;
+  width:100%!important;
+  height:150px!important;
+  min-height:150px!important;
+  max-height:150px!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+#slot .bod-line-numbers b{
+  opacity:1!important;
+}
+#slot .bod-line-numbers b.active{
+  filter:none!important;
+}
+@media(max-width:900px){
+  #slot .bod-reels .reel.reel-static{
+    height:330px!important;
+    grid-template-rows:repeat(3,110px)!important;
+  }
+  #slot .bod-reels .reel.reel-static>.bod-symbol{
+    height:110px!important;
+    min-height:110px!important;
+    max-height:110px!important;
+  }
+}
+
+/* V6: Walzen laufen optisch von OBEN nach UNTEN */
+#slot .bod-reels .reel{overflow:hidden!important;position:relative!important}
+#slot .bod-reels .reel.spinning .reel-strip{
+  top:0!important;
+  bottom:auto!important;
+  will-change:transform!important;
+}
+#slot .bod-reels .reel.spinning .bod-symbol{
+  transform:none!important;
+  animation:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+/* Nach dem Spin keinerlei alte Strip-Positionen mehr verwenden */
+#slot .bod-reels .reel.reel-static{
+  position:relative!important;
+  overflow:hidden!important;
+}
+
+/* BOOK OF DICE V7 — Linien + Einsatz getrennt, Gewinnanimation */
+#slot .bod-console{
+  grid-template-columns:1.05fr 1fr 1fr 1.05fr 1.55fr!important;
+}
+#slot .bod-lines-control strong{min-width:38px;text-align:center}
+#slot .bod-symbol.win-celebrate{
+  z-index:4!important;
+  animation:bodWinPulse .42s ease-in-out infinite alternate!important;
+  filter:brightness(1.45) saturate(1.35) drop-shadow(0 0 12px #ffd65a)!important;
+}
+#slot .bod-symbol.win-celebrate:after{
+  content:"";position:absolute;inset:5px;border:3px solid #ffd85a;
+  box-shadow:0 0 18px #ffb000, inset 0 0 16px rgba(255,210,70,.55);
+  pointer-events:none;
+}
+#slot .bod-paylines{transition:opacity .15s ease,filter .15s ease}
+#slot .bod-paylines.paylines-dim{opacity:.18!important}
+#slot .bod-reels.has-win{box-shadow:inset 0 0 30px rgba(255,190,30,.25)}
+#slot #slotWin.counting-win{display:inline-block;animation:bodCounterPulse .35s ease-in-out infinite alternate}
+@keyframes bodWinPulse{
+ from{transform:scale(.96);opacity:.72}
+ to{transform:scale(1.045);opacity:1}
+}
+@keyframes bodCounterPulse{
+ from{transform:scale(1);filter:brightness(1)}
+ to{transform:scale(1.12);filter:brightness(1.6)}
+}
+@media(max-width:900px){
+ #slot .bod-console{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #slot .bod-spin{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){
+ #slot .bod-symbol.win-celebrate,#slot #slotWin.counting-win{animation:none!important}
+}
+
+/* V8 — Linien x Einsatz/Linie = Gesamteinsatz; Gold + Silber */
+#slot .bod-console{grid-template-columns:.95fr .9fr 1.25fr 1.15fr .95fr 1.45fr!important}
+.coin-gold,.coin-silver{display:inline-block;border-radius:50%;font-size:.8em;line-height:1}
+.coin-gold{color:#f6bd25;text-shadow:0 0 5px #f08a00}
+.coin-silver{color:#d9e0e6;text-shadow:0 0 5px #7f8b96}
+#slot .bod-stat strong,#slot .bod-bet strong{white-space:nowrap}
+#slot .bod-total{border-color:#e2ad35!important}
+
+/* Paytable overlay */
+#slot .bod-paytable-modal{position:absolute!important;inset:0!important;z-index:80!important;background:rgba(4,2,1,.86)!important;display:flex!important;align-items:flex-start;justify-content:center;padding:28px 18px!important;overflow:auto}
+#slot .bod-paytable-modal.hidden{display:none!important}
+#slot .bod-paytable-card{width:min(900px,96%);background:linear-gradient(180deg,#3a1713,#1b0c09);border:2px solid #c89024;box-shadow:0 0 0 4px #090604,0 0 24px #000;color:#f7ead0}
+#slot .bod-paytable-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(#8c1a12,#4e0906);border-bottom:2px solid #d3a033;color:#ffd968}
+#slot .bod-paytable-head b{font:700 26px Georgia,serif}
+#slot .bod-paytable-head small{display:block;color:#f0d9a0;margin-top:3px}
+#slot .bod-paytable-head button{width:44px;height:44px;background:#160805;color:#ffd968;border:1px solid #d3a033;font-size:30px;cursor:pointer}
+#slot .bod-paytable-scroll{overflow-x:auto}
+#slot .bod-paytable-card table{width:100%;border-collapse:collapse;min-width:650px}
+#slot .bod-paytable-card th{background:rgba(255,255,255,.08);color:#fff;padding:12px;text-align:center}
+#slot .bod-paytable-card th:first-child{text-align:left}
+#slot .bod-paytable-card td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.18);text-align:center;font-size:18px;font-weight:700}
+#slot .bod-paytable-card td:first-child{text-align:left;display:flex;align-items:center;gap:12px}
+#slot .pt-symbol{width:58px!important;height:58px!important;min-height:58px!important;display:flex;align-items:center;justify-content:center;background:#090807;border:1px solid #9e6a16;color:#ffd44e;font-size:23px}
+#slot .bod-paytable-card p{margin:12px 16px 16px;padding:10px;background:#ead2a2;color:#321309;border:1px solid #bd8527}
+@media(max-width:1100px){#slot .bod-console{grid-template-columns:repeat(3,minmax(0,1fr))!important}#slot .bod-spin{grid-column:auto}}
+@media(max-width:700px){#slot .bod-console{grid-template-columns:repeat(2,minmax(0,1fr))!important}#slot .bod-spin{grid-column:1/-1}}
+
+/* V10 */
+#slot .bod-reel-wrap{position:relative;overflow:hidden}
+#slot .bod-paylines{pointer-events:none;z-index:8}
+#slot .payline-active{filter:drop-shadow(0 0 2px rgba(255,210,70,.4))}
+#slot .money-unit{display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;line-height:1}
+#slot .money-unit .coin{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font:900 9px Arial;border:1px solid rgba(255,255,255,.42);box-shadow:inset 0 0 0 2px rgba(0,0,0,.16),0 1px 4px #000}
+#slot .money-unit .coin-gold{background:radial-gradient(circle at 35% 30%,#fff3a6 0 10%,#f6c342 27%,#b56b00 72%,#754000 100%);color:#704100}
+#slot .money-unit .coin-silver{background:radial-gradient(circle at 35% 30%,#fff 0 10%,#dbe3ea 30%,#8f9aa5 72%,#4f5962 100%);color:#4e5962}
+#slot .money-unit b{font-size:clamp(15px,1.25vw,21px);color:#fff3b2}
+#slot .money-unit em{font:700 8px Arial;color:#c99d48;text-transform:uppercase;font-style:normal}
+#slot .money-plus{color:#c99d48}
+#slot .bod-console{display:grid!important;grid-template-columns:1.15fr .88fr 1.2fr 1.35fr 1.05fr 1.5fr!important;gap:7px!important;align-items:stretch!important}
+#slot .bod-console>div,#slot .bod-console>button{min-width:0!important}
+#slot .bod-stat,#slot .bod-bet{padding:7px 5px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important}
+#slot .bod-stat small,#slot .bod-bet small{white-space:nowrap;font-size:8px!important}
+#slot .bod-bet>div{display:grid!important;grid-template-columns:28px minmax(46px,1fr) 28px!important;width:100%;align-items:center}
+#slot .bod-bet button{width:28px!important;min-width:28px!important;padding:0!important}
+#slot .bod-spin{min-width:0!important;width:100%!important}
+@media(max-width:1200px){#slot .bod-console{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:720px){#slot .bod-console{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* V11 — line endpoints + free-spin presentation */
+#slot .bod-stage{position:relative}
+#slot .bod-line-numbers{position:relative!important;display:block!important;align-self:stretch!important;min-width:30px}
+#slot .bod-line-numbers b{
+ position:absolute!important;top:calc((var(--row) + .5) * 33.333333%)!important;transform:translateY(-50%)!important;
+ left:2px;right:2px;margin:0!important;height:24px!important;display:grid!important;place-items:center!important;
+ border:2px solid var(--lc)!important;background:linear-gradient(#4a2608,#171006)!important;color:#fff5b2!important;
+ box-shadow:0 0 7px color-mix(in srgb,var(--lc) 55%,transparent)!important;z-index:12
+}
+#slot .bod-line-numbers b.inactive{opacity:.32!important;filter:saturate(.55)}
+#slot .bod-line-numbers b.active{opacity:1!important}
+#slot .bod-line-numbers:first-child b{right:1px!important}
+#slot .bod-line-numbers:last-child b{left:1px!important}
+#slot .free-overlay{position:absolute;inset:0;z-index:80;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle,rgba(115,22,0,.36),rgba(0,0,0,.88) 72%);backdrop-filter:blur(2px)}
+#slot .free-overlay.hidden{display:none}
+#slot .free-burst{position:absolute;width:72%;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,205,55,.20) 0 5deg,transparent 5deg 13deg);animation:freeRotate 7s linear infinite}
+#slot .free-card{position:relative;width:min(78%,650px);padding:34px 28px;text-align:center;border:3px solid #d99419;background:linear-gradient(180deg,rgba(91,8,4,.98),rgba(21,7,2,.98));box-shadow:0 0 0 5px #2b1303,0 0 38px #ff9c16,inset 0 0 34px rgba(255,170,24,.18);clip-path:polygon(4% 0,96% 0,100% 12%,100% 88%,96% 100%,4% 100%,0 88%,0 12%)}
+#slot .free-card:before,#slot .free-card:after{content:"♦";position:absolute;top:50%;transform:translateY(-50%);font-size:44px;color:#ef251d;text-shadow:0 0 14px #ffad23}
+#slot .free-card:before{left:18px}#slot .free-card:after{right:18px}
+#slot .free-card small{color:#ffd45d;letter-spacing:.22em;font-weight:900}
+#slot .free-card h2{margin:8px 0 0;color:#ffe292;font:900 clamp(32px,5vw,64px) Georgia,serif;text-shadow:0 2px #7a2700,0 0 14px #ffad23}
+#slot .free-big{font:900 clamp(74px,12vw,145px)/.9 Georgia,serif;color:#fff1a2;text-shadow:0 5px 0 #8a3600,0 0 25px #ffb21e;animation:freePulse .8s ease-in-out infinite alternate}
+#slot .free-card p{color:#ffd970;font-weight:900;letter-spacing:.08em}
+#slot .free-money{margin-top:15px;display:flex;justify-content:center;transform:scale(1.35)}
+#slot .free-in .free-card{animation:freeCardIn .7s cubic-bezier(.16,.9,.22,1.2) both}
+#slot .free-out{animation:freeFade .5s ease forwards}
+#slot .free-final .free-card{box-shadow:0 0 0 5px #2b1303,0 0 60px #ffd12a,inset 0 0 45px rgba(255,190,25,.26)}
+@keyframes freeCardIn{0%{opacity:0;transform:scale(.35) rotate(-3deg)}65%{opacity:1;transform:scale(1.06) rotate(1deg)}100%{transform:scale(1)}}
+@keyframes freePulse{to{transform:scale(1.08);filter:brightness(1.25)}}
+@keyframes freeRotate{to{transform:rotate(360deg)}}
+@keyframes freeFade{to{opacity:0;transform:scale(1.06)}}
+
+/* V12 — animiertes Feature-Buch: Seiten blättern von rechts nach links */
+#slot .feature-book-stage{position:relative;z-index:2;width:min(92%,780px);text-align:center;color:#ffe08a}
+#slot .feature-kicker{font:900 12px Arial;letter-spacing:.25em;color:#ffc84d}
+#slot .feature-book-stage h2{margin:5px 0 2px;font:900 clamp(28px,4vw,50px) Georgia,serif;color:#ffe6a0;text-shadow:0 2px #7b2700,0 0 16px #ff9d17}
+#slot .feature-book{position:relative;width:min(92%,650px);height:300px;margin:8px auto 0;perspective:1500px;transform-style:preserve-3d;filter:drop-shadow(0 18px 16px #000)}
+#slot .feature-cover{position:absolute;inset:4px -12px -12px;border-radius:16px 16px 20px 20px;background:linear-gradient(90deg,#4b1e05,#7c3b0a 49%,#3d1603 51%,#6c2e06);border:6px solid #9b5709;box-shadow:0 0 0 3px #351500,0 0 34px rgba(255,157,23,.7)}
+#slot .feature-page{position:absolute;top:0;width:50%;height:285px;overflow:hidden;border:3px solid #7b4209;background:linear-gradient(105deg,#bb7927,#f5d47a 40%,#c38732);box-shadow:inset 0 0 32px #8d510d;color:#632e05}
+#slot .feature-left{left:0;border-radius:16px 2px 3px 15px;transform:rotateY(4deg);transform-origin:right}
+#slot .feature-right{right:0;border-radius:2px 16px 15px 3px;transform:rotateY(-4deg);transform-origin:left}
+#slot .feature-runes{padding-top:30px;font:700 34px/1.85 Georgia;opacity:.65;text-shadow:0 1px #ffd98c}
+#slot .feature-symbol{padding-top:42px;font:900 105px/1 Georgia;color:#7a160a;text-shadow:0 3px #f5c95e,0 0 10px #fff0a0;transition:transform .25s,filter .25s}
+#slot .feature-label{margin-top:18px;font:900 13px Arial;letter-spacing:.08em}
+#slot .feature-flip{position:absolute;right:0;top:0;width:50%;height:285px;transform-origin:left center;transform-style:preserve-3d;opacity:0;z-index:8}
+#slot .feature-flip>div{position:absolute;inset:0;display:grid;place-items:center;backface-visibility:hidden;border:2px solid #704006;background:linear-gradient(100deg,#f2d580,#b97626);font:900 88px Georgia;color:#76180b;box-shadow:inset 0 0 28px #87500f}
+#slot .feature-flip>div+div{transform:rotateY(180deg)}
+#slot .book-playing .feature-flip.f1{animation:featurePageTurn 1.15s .35s ease-in-out both}
+#slot .book-playing .feature-flip.f2{animation:featurePageTurn 1.15s 1.15s ease-in-out both}
+#slot .book-playing .feature-flip.f3{animation:featurePageTurn 1.15s 1.95s ease-in-out both}
+#slot .book-playing .feature-flip.f4{animation:featurePageTurn 1.35s 2.75s ease-in-out both}
+#slot .feature-count{display:flex;justify-content:center;align-items:baseline;gap:12px;margin-top:2px;text-shadow:0 0 13px #ff9d17}
+#slot .feature-count b{font:900 58px Georgia;color:#fff0a3}
+#slot .feature-count span{font:900 23px Georgia}
+#slot .feature-book-stage>p{margin:0;font:900 14px Arial;letter-spacing:.08em;color:#ffd873}
+#slot .feature-chosen .feature-symbol{animation:featureChosenPulse .62s ease-in-out infinite alternate}
+#slot .feature-chosen .feature-right{animation:featurePageGlow .7s ease-in-out infinite alternate}
+@keyframes featurePageTurn{
+  0%{opacity:1;transform:rotateY(0deg);filter:brightness(1)}
+  42%{opacity:1;filter:brightness(1.3)}
+  99%{opacity:1;transform:rotateY(-179deg);filter:brightness(.85)}
+  100%{opacity:0;transform:rotateY(-180deg)}
+}
+@keyframes featureChosenPulse{to{transform:scale(1.12);filter:drop-shadow(0 0 18px #fff1a1)}}
+@keyframes featurePageGlow{to{box-shadow:inset 0 0 45px #d78515,0 0 28px #ffb51e}}
+@media(max-width:760px){#slot .feature-book{height:230px;transform:scale(.82);margin:-15px auto -20px}#slot .feature-page,#slot .feature-flip{height:230px}#slot .feature-symbol{font-size:78px;padding-top:35px}}
+
+/* V13 FUNCTION-FIRST: Feature muss garantiert sichtbar über dem Slot liegen */
+#slot .bod-cabinet{position:relative;isolation:isolate}
+#slot .free-overlay{position:absolute!important;inset:0!important;z-index:999!important;min-height:100%;opacity:1}
+#slot .free-overlay.free-in{display:grid!important}
+#slot .free-overlay.free-out{pointer-events:none}
+#slot .book-opening .feature-book{animation:v13BookOpen .65s cubic-bezier(.2,.8,.2,1) both}
+#slot .book-playing .feature-flip.f1{animation:featurePageTurn 1.05s .15s ease-in-out both}
+#slot .book-playing .feature-flip.f2{animation:featurePageTurn 1.05s .90s ease-in-out both}
+#slot .book-playing .feature-flip.f3{animation:featurePageTurn 1.05s 1.65s ease-in-out both}
+#slot .book-playing .feature-flip.f4{animation:featurePageTurn 1.05s 2.40s ease-in-out both}
+#slot .book-playing .feature-flip.f5{animation:featurePageTurn 1.20s 3.15s ease-in-out both}
+@keyframes v13BookOpen{0%{opacity:0;transform:scale(.55) rotateX(55deg)}100%{opacity:1;transform:scale(1) rotateX(0)}}
+
+/* V14 – flüssige Expansion statt hartem Umspringen */
+#slot .bod-symbol{will-change:transform,opacity,filter}
+#slot .expand-source{animation:v14SourcePulse .52s ease-in-out infinite alternate;z-index:4}
+#slot .reel-expanding{overflow:visible;filter:drop-shadow(0 0 8px rgba(255,190,55,.55))}
+#slot .expand-out{animation:v14ExpandOut .18s ease-in forwards}
+#slot .expand-in{animation:v14ExpandIn .48s cubic-bezier(.16,.85,.22,1) both}
+#slot .expand-hold{animation:v14ExpandHold .55s ease-in-out both}
+@keyframes v14SourcePulse{
+ from{transform:scale(1);filter:brightness(1)}
+ to{transform:scale(1.07);filter:brightness(1.45) drop-shadow(0 0 12px #ffc94e)}
+}
+@keyframes v14ExpandOut{
+ to{opacity:0;transform:scale(.72) translateY(8px);filter:blur(3px)}
+}
+@keyframes v14ExpandIn{
+ 0%{opacity:0;transform:scale(.72) translateY(-28px);filter:blur(5px) brightness(1.8)}
+ 65%{opacity:1;transform:scale(1.045) translateY(2px);filter:blur(0) brightness(1.35)}
+ 100%{opacity:1;transform:scale(1) translateY(0);filter:brightness(1)}
+}
+@keyframes v14ExpandHold{
+ 50%{transform:scale(1.06);filter:brightness(1.45) drop-shadow(0 0 11px #ffc94e)}
+}
+
+/* Gesamtgewinn am Ende klar und groß darstellen */
+#slot .free-overlay.v14-total .feature-book{transform:scale(.78);margin-top:-12px}
+#slot .free-overlay.v14-total .feature-count{display:none}
+#slot .free-overlay.v14-total .free-money{
+ margin:14px auto 0;padding:14px 30px;min-width:min(90%,520px);
+ border:3px solid #d49422;border-radius:8px;
+ background:linear-gradient(#6f160e,#2b0704);
+ box-shadow:0 0 0 3px #311405,0 0 28px rgba(255,177,34,.65),inset 0 0 22px rgba(255,196,70,.16);
+}
+#slot .free-total-label{font:900 13px Arial;letter-spacing:.24em;color:#ffc94d;margin-bottom:6px}
+#slot .free-total-value{font:900 clamp(32px,5vw,58px) Georgia;color:#fff0a4;text-shadow:0 2px #711b08,0 0 15px #ffad1d}
+#slot .free-total-value .coin{transform:scale(1.25);margin:0 5px}
+
+/* V15 – Book-of-Dice Expansion: Feld für Feld innerhalb EINER Walze */
+#slot .reel-expanding{position:relative;z-index:20}
+#slot .expand-origin{
+ z-index:8;
+ animation:v15Origin .7s ease-in-out infinite alternate!important;
+}
+#slot .expand-cell-out{
+ animation:v15CellOut .17s ease-in forwards!important;
+}
+#slot .expand-cell-in{
+ z-index:7;
+ animation:v15CellIn .42s cubic-bezier(.18,.82,.22,1) both!important;
+}
+#slot .expand-lock{
+ animation:v15Lock .34s ease-out both!important;
+}
+@keyframes v15Origin{
+ from{transform:scale(1);filter:brightness(1.1) drop-shadow(0 0 4px #d58b18)}
+ to{transform:scale(1.09);filter:brightness(1.6) drop-shadow(0 0 15px #ffd65a)}
+}
+@keyframes v15CellOut{
+ 0%{opacity:1;transform:scale(1)}
+ 100%{opacity:0;transform:scale(.84);filter:blur(2px)}
+}
+@keyframes v15CellIn{
+ 0%{opacity:0;transform:translateY(calc(var(--expand-from) * 18px)) scale(.78);filter:brightness(1.9) blur(4px)}
+ 72%{opacity:1;transform:translateY(0) scale(1.055);filter:brightness(1.45) blur(0)}
+ 100%{opacity:1;transform:translateY(0) scale(1);filter:brightness(1)}
+}
+@keyframes v15Lock{
+ 0%{filter:brightness(1.7) drop-shadow(0 0 12px #ffd65a)}
+ 100%{filter:brightness(1)}
+}
+
+/* Immer sichtbar, wie viele Feature-Symbole aktuell aktiv sind */
+#slot .active-feature-stack{
+ position:absolute;right:12px;top:52px;z-index:60;
+ display:flex;gap:5px;align-items:center;flex-wrap:wrap;
+ max-width:70%;padding:6px 8px;
+ border:1px solid #b97918;background:rgba(20,5,2,.88);
+ box-shadow:0 0 10px rgba(255,174,31,.25);
+ font:700 10px Arial;color:#f3c55b;
+}
+#slot .active-feature-stack span{letter-spacing:.08em;margin-right:3px}
+#slot .active-feature-stack b{
+ border:1px solid #8e5c14;background:#56120c;color:#ffe18b;
+ padding:4px 7px;border-radius:2px;font:900 11px Georgia;
+}
+
+/* V16: bewusst langsame, einzelne Expansion pro Feld */
+#slot .v16-expanding-reel{position:relative;z-index:25}
+#slot .v16-expand-source{
+ z-index:8;
+ animation:v16SourcePulse .8s ease-in-out infinite alternate!important;
+}
+#slot .v16-cell-leave{
+ animation:v16Leave .30s ease-in forwards!important;
+}
+#slot .v16-cell-enter{
+ z-index:7;
+ animation:v16Enter .62s cubic-bezier(.2,.72,.22,1) both!important;
+}
+#slot .v16-expand-set{
+ animation:v16Set .34s ease-out both!important;
+}
+@keyframes v16SourcePulse{
+ from{transform:scale(1);filter:brightness(1)}
+ to{transform:scale(1.055);filter:brightness(1.35) drop-shadow(0 0 10px #ffd05a)}
+}
+@keyframes v16Leave{
+ 0%{opacity:1;transform:scale(1);filter:blur(0)}
+ 100%{opacity:0;transform:scale(.90);filter:blur(2px)}
+}
+@keyframes v16Enter{
+ 0%{opacity:0;transform:scale(.86);filter:blur(3px) brightness(1.55)}
+ 60%{opacity:1;transform:scale(1.025);filter:blur(0) brightness(1.28)}
+ 100%{opacity:1;transform:scale(1);filter:brightness(1)}
+}
+@keyframes v16Set{
+ 0%{filter:brightness(1.45) drop-shadow(0 0 10px #ffd05a)}
+ 100%{filter:brightness(1)}
+}
+
+/* Klassisches Endergebnis – ausdrücklich OHNE Buch */
+#slot .classic-free-result{
+ position:absolute;inset:0;z-index:1200;
+ display:grid;place-items:center;
+ background:rgba(0,0,0,.82);
+ backdrop-filter:blur(2px);
+ opacity:0;transition:opacity .45s ease;
+}
+#slot .classic-free-result.hidden{display:none!important}
+#slot .classic-free-result.show{opacity:1}
+#slot .classic-free-result.hide-result{opacity:0}
+#slot .classic-result-box{
+ width:min(86%,650px);
+ padding:34px 28px 30px;
+ text-align:center;
+ border:3px solid #c7861d;
+ background:linear-gradient(180deg,#65140d 0%,#250603 58%,#100302 100%);
+ box-shadow:0 0 0 4px #281204,0 0 45px rgba(255,175,35,.5),inset 0 0 35px rgba(255,190,50,.10);
+ transform:scale(.92);
+ animation:v16ResultIn .55s cubic-bezier(.18,.8,.2,1) forwards;
+}
+#slot .classic-result-small{
+ font:900 12px Arial;letter-spacing:.28em;color:#e9b84c;
+}
+#slot .classic-result-title{
+ margin-top:8px;
+ font:900 clamp(30px,5vw,54px) Georgia,serif;
+ color:#ffe69a;
+ text-shadow:0 2px #701a09,0 0 16px #ff9e16;
+}
+#slot .classic-result-money{
+ margin:22px 0 18px;
+ font:900 clamp(42px,7vw,78px) Georgia,serif;
+ color:#fff3b0;
+ text-shadow:0 3px #6d1a08,0 0 22px #ffad1d;
+}
+#slot .classic-result-line{
+ width:70%;height:2px;margin:auto;
+ background:linear-gradient(90deg,transparent,#d99826,transparent);
+}
+#slot .classic-result-note{
+ margin-top:14px;font:800 11px Arial;letter-spacing:.16em;color:#d9ad55;
+}
+@keyframes v16ResultIn{
+ from{opacity:0;transform:scale(.82) translateY(14px)}
+ to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+/* V17 – normale Spins: komplette Walze stoppt als Einheit */
+#slot .v17-reel-spinning{
+ overflow:hidden!important;
+ position:relative;
+}
+#slot .v17-reel-strip{
+ position:absolute;
+ left:0;right:0;top:0;
+ height:100%;
+ will-change:transform;
+ transform:translateY(calc(var(--v17-steps) * -100%));
+}
+#slot .v17-reel-frame{
+ height:100%;
+ display:grid;
+ grid-template-rows:repeat(3,1fr);
+}
+#slot .v17-reel-frame>.bod-symbol{
+ min-height:0;
+}
+#slot .v17-reel-strip.v17-run{
+ animation:v17WholeReelStop 1.05s cubic-bezier(.12,.68,.18,1) forwards;
+}
+#slot .v17-reel-stopped{
+ animation:v17ReelSettle .13s ease-out;
+}
+@keyframes v17WholeReelStop{
+ 0%{transform:translateY(0);filter:blur(2px)}
+ 72%{filter:blur(1.2px)}
+ 94%{transform:translateY(calc(var(--v17-steps) * -100%));filter:blur(.3px)}
+ 100%{transform:translateY(calc(var(--v17-steps) * -100%));filter:blur(0)}
+}
+@keyframes v17ReelSettle{
+ 0%{transform:translateY(-2px)}
+ 100%{transform:translateY(0)}
+}
+
+/* V18 – synchroner Start: gleiche Anfangsgeschwindigkeit, unterschiedliche Stopzeiten */
+#slot .v18-reel-spinning{overflow:hidden!important;position:relative}
+#slot .v18-reel-strip{
+ position:absolute;left:0;right:0;top:0;height:100%;
+ will-change:transform,filter;
+}
+#slot .v18-reel-frame{
+ height:100%;
+ display:grid;
+ grid-template-rows:repeat(3,1fr);
+}
+#slot .v18-reel-frame>.bod-symbol{min-height:0}
+
+/* Der Anfang der Kurve ist bei allen Walzen gleich schnell.
+   Unterschiedlich wird nur die spätere Bremsphase/Stopzeit. */
+#slot .v18-reel-strip.v18-run{
+ animation:v18WholeReel var(--v18-stop) cubic-bezier(.12,.62,.16,1) forwards;
+}
+@keyframes v18WholeReel{
+ 0%{transform:translateY(0);filter:blur(2.2px)}
+ 18%{filter:blur(2.2px)}
+ 70%{filter:blur(1.2px)}
+ 92%{filter:blur(.35px)}
+ 100%{transform:translateY(calc(var(--v18-steps) * -100%));filter:blur(0)}
+}
+#slot .v18-reel-stopped{animation:v18Settle .12s ease-out}
+@keyframes v18Settle{from{transform:translateY(-1px)}to{transform:translateY(0)}}
+
+/* V19 – echter Lauf von OBEN nach UNTEN, weiches Stoppen ohne Nachrutschen */
+#slot .v19-reel-spinning{
+ overflow:hidden!important;
+ position:relative;
+}
+#slot .v19-reel-strip{
+ position:absolute;
+ left:0;
+ right:0;
+ top:0;
+ width:100%;
+ will-change:transform;
+ backface-visibility:hidden;
+ transform:translate3d(0,var(--v19-start),0);
+}
+#slot .v19-reel-frame{
+ width:100%;
+ display:grid;
+ grid-template-rows:repeat(3,minmax(0,1fr));
+ flex:none;
+}
+#slot .v19-reel-frame>.bod-symbol{
+ min-height:0!important;
+ height:auto!important;
+}
+
+/* Positive Bewegungsrichtung auf dem Bildschirm:
+   Start = negativer Y-Wert, Ende = 0 -> Strip fährt NACH UNTEN.
+   Die ersten ~65% wirken schnell/gleichmäßig, danach bremst die Walze
+   kontinuierlich ab. Kein Bounce und kein separates "Settle". */
+#slot .v19-reel-strip.v19-run{
+ animation:v19DownwardStop var(--v19-stop) forwards;
+ animation-timing-function:cubic-bezier(.12,.72,.18,1);
+}
+@keyframes v19DownwardStop{
+ 0%{
+   transform:translate3d(0,var(--v19-start),0);
+   filter:blur(1.8px);
+ }
+ 58%{
+   filter:blur(1.4px);
+ }
+ 82%{
+   filter:blur(.7px);
+ }
+ 94%{
+   filter:blur(.2px);
+ }
+ 100%{
+   transform:translate3d(0,0,0);
+   filter:blur(0);
+ }
+}
+
+/* V20 – requestAnimationFrame übernimmt die Bewegung komplett */
+#slot .v20-reel-spinning{overflow:hidden!important;position:relative}
+#slot .v20-reel-strip{
+ position:absolute;left:0;right:0;top:0;width:100%;
+ will-change:transform;
+ transform:translate3d(0,0,0);
+ backface-visibility:hidden;
+ contain:layout paint;
+}
+#slot .v20-reel-frame{
+ width:100%;
+ display:grid;
+ grid-template-rows:repeat(3,minmax(0,1fr));
+}
+#slot .v20-reel-frame>.bod-symbol{min-height:0!important;height:auto!important}
+/* Wichtig: V20 hat absichtlich KEINE CSS transition/animation am Strip.
+   Sonst würde die JS-Bewegung beim Stop erneut ruckeln. */
+#slot .v20-reel-strip,#slot .v20-reel-strip *{
+ transition:none!important;
+}
+
+/* V21 – vorhandenes Bild bleibt beim Start sichtbar, konstante Geschwindigkeit */
+#slot .v21-reel-spinning{
+ overflow:hidden!important;
+ position:relative;
+ background:inherit!important;
+}
+#slot .v21-reel-strip{
+ position:absolute;
+ left:0;right:0;top:0;width:100%;
+ will-change:transform;
+ backface-visibility:hidden;
+ transform-style:preserve-3d;
+}
+#slot .v21-reel-frame{
+ width:100%;
+ display:grid;
+ grid-template-rows:repeat(3,minmax(0,1fr));
+}
+#slot .v21-reel-frame>.bod-symbol{
+ min-height:0!important;
+ height:auto!important;
+}
+/* Keine konkurrierenden CSS-Animationen/Transitions auf dem laufenden Strip. */
+#slot .v21-reel-strip,
+#slot .v21-reel-strip .bod-symbol{
+ animation:none!important;
+ transition:none!important;
+}
+
+/* V22: Landebild bleibt unverändert sichtbar; kein Symbol-Swap am Einzelstopp */
+#slot .v22-reel-landed{
+ overflow:hidden!important;
+ position:relative;
+}
+
+/* V23 – Strip bleibt nach dem Stopp bestehen */
+#slot .v23-reel-spinning,
+#slot .v23-reel-stopped{
+ overflow:hidden!important;
+ position:relative;
+}
+#slot .v23-reel-strip{
+ position:absolute;
+ left:0;
+ right:0;
+ top:0;
+ width:100%;
+ will-change:transform;
+ backface-visibility:hidden;
+ transform-style:preserve-3d;
+}
+#slot .v23-reel-frame{
+ width:100%;
+ display:grid;
+ grid-template-rows:repeat(3,minmax(0,1fr));
+}
+#slot .v23-reel-frame>.bod-symbol{
+ min-height:0!important;
+ height:auto!important;
+}
+#slot .v23-reel-strip,
+#slot .v23-reel-strip .bod-symbol{
+ animation:none!important;
+ transition:none!important;
+}
+#slot .v23-reel-stopped .v23-reel-strip{
+ will-change:auto;
+}
+
+/* V24 – kontinuierlicher Strip aus EINZELNEN Symbolzellen */
+#slot .v24-reel-spinning,
+#slot .v24-reel-stopped{
+ overflow:hidden!important;
+ position:relative;
+}
+#slot .v24-symbol-strip{
+ position:absolute;
+ left:0; right:0; top:0;
+ width:100%;
+ will-change:transform;
+ backface-visibility:hidden;
+ transform-style:preserve-3d;
+}
+#slot .v24-symbol-cell{
+ width:100%;
+ box-sizing:border-box;
+ display:flex;
+ align-items:stretch;
+ justify-content:stretch;
+ overflow:hidden;
+ flex:none;
+}
+#slot .v24-symbol-cell>.bod-symbol{
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ box-sizing:border-box!important;
+ margin:0!important;
+ flex:1 1 auto!important;
+}
+#slot .v24-symbol-strip,
+#slot .v24-symbol-strip *,
+#slot .v24-reel-spinning,
+#slot .v24-reel-stopped{
+ transition:none!important;
+}
+#slot .v24-reel-stopped .v24-symbol-strip{
+ will-change:auto;
+}
+
+/* V25 – drei Reihen landen pixelgenau gemeinsam */
+#slot .v25-reel-spinning,
+#slot .v25-reel-stopped{
+ overflow:hidden!important;
+ position:relative;
+}
+#slot .v25-symbol-strip{
+ position:absolute!important;
+ left:0!important;
+ right:0!important;
+ top:0!important;
+ width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ display:block!important;
+ will-change:transform;
+ backface-visibility:hidden;
+}
+#slot .v25-symbol-cell{
+ width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ border:0!important;
+ box-sizing:border-box!important;
+ display:block!important;
+ overflow:hidden!important;
+ position:relative!important;
+}
+#slot .v25-symbol-cell>.bod-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ max-height:none!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+}
+#slot .v25-symbol-strip,
+#slot .v25-symbol-strip *,
+#slot .v25-reel-spinning,
+#slot .v25-reel-stopped{
+ transition:none!important;
+}
+
+/* ============================================================
+   V51 – visual polish: centered art, smooth mechanical landing and
+   win emphasis without any scale/zoom.
+   ============================================================ */
+#slot .bod-reels .custom-slot-symbol,
+#slot .classic-reel-cell .custom-slot-symbol,
+#slot .v25-symbol-cell .custom-slot-symbol,
+#slot .v27-fixed-reel .custom-slot-symbol,
+#slot .v47-expand-ready .custom-slot-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:86%!important;
+ height:86%!important;
+ min-width:0!important;
+ min-height:0!important;
+ max-width:86%!important;
+ max-height:86%!important;
+ margin:auto!important;
+ padding:0!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+}
+
+/* The two 42px hero assets are visually denser; give them a little air. */
+#slot .bod-symbol[data-sym="VALORIAN"] .custom-slot-symbol,
+#slot .bod-symbol[data-sym="DERION"] .custom-slot-symbol{
+ width:82%!important;
+ height:82%!important;
+ max-width:82%!important;
+ max-height:82%!important;
+}
+
+/* One tiny mechanical settle, translation only – never scaling. */
+#slot .v27-fixed-reel.classic-reel-stopped{
+ animation:v51ReelSettle .14s ease-out both!important;
+}
+@keyframes v51ReelSettle{
+ from{translate:0 -2px}
+ to{translate:0 0}
+}
+
+/* Gold/light feedback only. Geometry remains completely fixed. */
+#slot .bod-symbol.win,
+#slot .bod-symbol.win-celebrate{
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:v51WinLight .52s ease-in-out infinite alternate!important;
+ outline:1px solid rgba(255,204,72,.75)!important;
+ outline-offset:-2px!important;
+}
+@keyframes v51WinLight{
+ from{filter:brightness(1);box-shadow:inset 0 0 8px rgba(255,190,45,.2)!important}
+ to{filter:brightness(1.32) drop-shadow(0 0 5px rgba(255,196,52,.75));box-shadow:inset 0 0 18px rgba(255,210,75,.55)!important}
+}
+
+/* V50 – Book-of-Ra style overlay track. The fixed 3-row reel below it never
+   changes geometry; only this cover layer moves vertically. */
+#slot .classic-reel-spinning{
+ position:relative!important;
+ overflow:hidden!important;
+}
+#slot .classic-reel-track{
+ position:absolute!important;
+ z-index:12!important;
+ left:0!important;
+ right:0!important;
+ top:0!important;
+ width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ background:#050301!important;
+ will-change:transform!important;
+ backface-visibility:hidden!important;
+ transform:translate3d(0,0,0);
+ transition:none!important;
+ animation:none!important;
+}
+#slot .classic-reel-cell{
+ position:relative!important;
+ width:100%!important;
+ min-height:0!important;
+ margin:0!important;
+ padding:0!important;
+ overflow:hidden!important;
+ box-sizing:border-box!important;
+ background:#050301!important;
+ border-bottom:1px solid rgba(164,105,27,.55)!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+}
+
+/* ============================================================
+   V52 – compositor-smooth reels and clipping-safe symbol placement.
+   No reel settle translation: every image remains fully inside its row.
+   ============================================================ */
+#slot .v27-fixed-reel.classic-reel-stopped{
+ animation:none!important;
+ translate:none!important;
+}
+#slot .bod-reels .bod-symbol,
+#slot .classic-reel-cell>.bod-symbol,
+#slot .v25-symbol-cell>.bod-symbol,
+#slot .v27-fixed-reel>.bod-symbol,
+#slot .v47-expand-ready>.bod-symbol{
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ overflow:hidden!important;
+}
+#slot .bod-reels .custom-slot-symbol,
+#slot .classic-reel-cell .custom-slot-symbol,
+#slot .v25-symbol-cell .custom-slot-symbol,
+#slot .v27-fixed-reel .custom-slot-symbol,
+#slot .v47-expand-ready .custom-slot-symbol,
+#slot .bod-symbol.win .custom-slot-symbol,
+#slot .bod-symbol.win-celebrate .custom-slot-symbol{
+ position:static!important;
+ inset:auto!important;
+ display:block!important;
+ width:84%!important;
+ height:84%!important;
+ min-width:0!important;
+ min-height:0!important;
+ max-width:84%!important;
+ max-height:84%!important;
+ margin:auto!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+}
+#slot .bod-symbol[data-sym="VALORIAN"] .custom-slot-symbol,
+#slot .bod-symbol[data-sym="DERION"] .custom-slot-symbol{
+ width:80%!important;
+ height:80%!important;
+ max-width:80%!important;
+ max-height:80%!important;
+}
+
+/* ============================================================
+   V53 – low-strobe reel rendering and absolutely no end zoom.
+   ============================================================ */
+#slot .classic-reel-track,
+#slot .classic-reel-cell,
+#slot .classic-reel-cell>.bod-symbol,
+#slot .classic-reel-cell .custom-slot-symbol{
+ filter:none!important;
+ box-shadow:none!important;
+ perspective:none!important;
+ backface-visibility:hidden!important;
+}
+#slot .classic-reel-track{
+ contain:layout paint style!important;
+ transform-style:flat!important;
+}
+
+/* Winning/end state is static. No pulse, scale, filter animation or
+   transition may make the stopped symbols appear to zoom. */
+#slot .bod-symbol.win,
+#slot .bod-symbol.win-celebrate,
+#slot .bod-reels.has-win,
+#slot #slotWin.counting-win,
+#slot .classic-reel-stopped,
+#slot .classic-reel-stopped .bod-symbol,
+#slot .classic-reel-stopped .custom-slot-symbol{
+ animation:none!important;
+ transition:none!important;
+ transform:none!important;
+ translate:none!important;
+ scale:1!important;
+ zoom:1!important;
+ filter:none!important;
+}
+#slot .bod-symbol.win,
+#slot .bod-symbol.win-celebrate{
+ outline:1px solid rgba(255,204,72,.8)!important;
+ outline-offset:-2px!important;
+ box-shadow:inset 0 0 12px rgba(255,205,65,.32)!important;
+}
+#slot .classic-reel-cell>.bod-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ max-height:none!important;
+ margin:0!important;
+ padding:0!important;
+ box-sizing:border-box!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:none!important;
+ transition:none!important;
+}
+#slot .classic-reel-cell .custom-slot-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:90%!important;
+ height:90%!important;
+ min-width:0!important;
+ min-height:0!important;
+ max-width:90%!important;
+ max-height:90%!important;
+ object-fit:contain!important;
+ margin:auto!important;
+ object-position:center center!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:none!important;
+ transition:none!important;
+}
+#slot .v25-reel-stopped .v25-symbol-strip{will-change:auto}
+
+/* V26 – Expanding Symbol als eigene Overlay-Ebene.
+   Die darunterliegende gestoppte Walze wird niemals bewegt/ersetzt. */
+#slot .v25-reel-stopped,
+#slot .v25-reel-spinning{
+ position:relative!important;
+ overflow:hidden!important;
+}
+#slot .v26-expand-layer{
+ position:absolute;
+ inset:0;
+ z-index:30;
+ pointer-events:none;
+ overflow:hidden;
+}
+#slot .v26-expand-symbol{
+ position:absolute;
+ left:0;
+ width:100%;
+ overflow:hidden;
+ display:flex;
+ align-items:stretch;
+ justify-content:stretch;
+}
+#slot .v26-expand-symbol>.bod-symbol{
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+}
+#slot .v26-expand-source{
+ animation:v26SourcePulse .38s ease-out both;
+}
+#slot .v26-expand-enter{
+ transform-origin:center center;
+ animation:v26ExpandIntoCell .52s cubic-bezier(.18,.82,.22,1) both;
+}
+#slot .v26-expand-complete{
+ animation:v26WholeReelGlow .42s ease-in-out both;
+}
+#slot .v26-expand-locked{
+ filter:none;
+}
+@keyframes v26SourcePulse{
+ 0%{transform:scale(.94);filter:brightness(1)}
+ 55%{transform:scale(1.08);filter:brightness(1.55) drop-shadow(0 0 12px rgba(255,210,80,.9))}
+ 100%{transform:scale(1);filter:brightness(1.2) drop-shadow(0 0 7px rgba(255,210,80,.65))}
+}
+@keyframes v26ExpandIntoCell{
+ 0%{opacity:0;transform:scale(.62);filter:brightness(1.8) blur(2px)}
+ 62%{opacity:1;transform:scale(1.06);filter:brightness(1.45) blur(0)}
+ 100%{opacity:1;transform:scale(1);filter:brightness(1.08)}
+}
+@keyframes v26WholeReelGlow{
+ 0%,100%{filter:brightness(1)}
+ 50%{filter:brightness(1.42) drop-shadow(0 0 14px rgba(255,205,70,.9))}
+}
+
+/* V27: expansion changes artwork only; reel geometry is locked */
+#slot .v27-fixed-reel{position:relative!important;overflow:hidden!important}
+#slot .v27-fixed-reel>.bod-symbol{transform:none!important;translate:none!important}
+#slot .v27-expand-source{animation:v27Source .15s ease-out both!important}
+#slot .v27-expand-change{opacity:.25!important}
+#slot .v27-expand-in{animation:v27In .13s ease-out both!important}
+#slot .v27-expanded-reel{animation:v27Glow .12s ease-out!important}
+@keyframes v27Source{50%{filter:brightness(1.55) drop-shadow(0 0 10px rgba(255,210,80,.9))}}
+@keyframes v27In{from{opacity:.2;filter:brightness(1.5)}to{opacity:1;filter:brightness(1)}}
+@keyframes v27Glow{50%{filter:brightness(1.16)}}
+
+
+/* ============================================================
+   V29 VISUAL REDESIGN
+   Ziel: Optik des freigegebenen BOOK-OF-DICE-Referenzbildes.
+   WICHTIG: keine Spiellogik geändert. app.js bleibt V28.
+   ============================================================ */
+
+:root{
+ --v29-gold:#e9b53a;
+ --v29-gold2:#ffdc6a;
+ --v29-red:#8d130d;
+ --v29-red2:#3b0504;
+ --v29-black:#050403;
+}
+html,body{background:#020201!important}
+body{
+ background:
+ radial-gradient(ellipse at 50% 5%,rgba(92,36,10,.28),transparent 42%),
+ linear-gradient(#020201,#050302 70%,#120905)!important;
+}
+.page{width:100%;overflow-x:hidden}
+
+/* Header stays the exact established DICE DUEL artwork */
+.hero{
+ width:min(1536px,calc(100vw - 24px))!important;
+ aspect-ratio:1536/255!important;
+ height:auto!important;
+ margin:0 auto!important;
+ background:url("assets/hero.jpg") center/100% 100% no-repeat!important;
+ box-shadow:0 7px 22px #000!important;
+}
+
+/* Reference proportions: narrow left/right rails, dominant slot center */
+.layout{
+ width:min(1536px,calc(100vw - 24px))!important;
+ margin:0 auto 34px!important;
+ padding:4px 2px 18px!important;
+ grid-template-columns:290px minmax(0,1fr) 290px!important;
+ gap:10px!important;
+ align-items:start!important;
+}
+.frame{
+ border:2px solid #8d5a16!important;
+ outline:1px solid #251305!important;
+ background:#050403!important;
+ box-shadow:
+ inset 0 0 0 2px #160b05,
+ inset 0 0 0 4px rgba(207,139,31,.18),
+ 0 10px 26px #000!important;
+}
+
+/* LEFT */
+.left-column{padding:10px!important;min-height:680px!important}
+.mode-rail{gap:9px!important}
+.mode,.slot-mode-btn{
+ min-height:88px!important;
+ grid-template-columns:72px 1fr!important;
+ padding:9px 10px!important;
+ color:#f5d46b!important;
+ border:1px solid #a66c1d!important;
+ box-shadow:inset 0 0 0 2px #160804,inset 0 0 0 4px #6f4618,0 2px 8px #000!important;
+}
+.mode{background:linear-gradient(#15100c,#070504)!important}
+.mode.active,.slot-mode-btn.active,#slotModeBtn{
+ background:linear-gradient(180deg,#a71d13,#5d0906)!important;
+ border-color:#f0ae2d!important;
+}
+.mode-copy strong{font:800 20px/1.05 Cinzel,serif!important;color:#f5d56f!important}
+.mode-copy small{font-size:10px!important;color:#f0d99c!important}
+.slot-mode-symbol{font-size:39px!important}
+.left-art{
+ height:354px!important;
+ margin-top:10px!important;
+ background:url("assets/left-dice.jpg") center/cover no-repeat!important;
+ border:1px solid #8d5a16!important;
+}
+
+/* CENTER */
+.center-column{padding:0 7px 9px!important;min-height:680px!important}
+#slot>.titlebar{
+ margin:0 -7px 6px!important;
+ min-height:48px!important;
+ padding:9px 14px!important;
+ font:800 22px Cinzel,serif!important;
+ background:linear-gradient(90deg,#6f0c08,#9f1a12 50%,#4a0705)!important;
+ border-color:#c78b2b!important;
+}
+#slot>.titlebar small{display:none!important}
+
+#slot .bod-cabinet{
+ margin:0!important;
+ padding:0 7px 5px!important;
+ background:
+ radial-gradient(circle at 50% 0,rgba(125,52,9,.25),transparent 33%),
+ linear-gradient(#130904,#050302 70%,#100704)!important;
+ border:2px solid #a66d1f!important;
+ box-shadow:inset 0 0 0 2px #211006,inset 0 0 30px #000!important;
+}
+
+/* BOOK OF DICE sign */
+#slot .bod-marquee{
+ height:100px!important;
+ margin:0 2px 5px!important;
+ border:4px ridge #bd8128!important;
+ background:
+ radial-gradient(ellipse at center,#3b1908 0,#090402 64%),
+ linear-gradient(90deg,#391608,#080402,#391608)!important;
+ box-shadow:inset 0 0 28px #000,0 4px 10px #000!important;
+}
+#slot .bod-marquee b{
+ font-size:clamp(31px,3.5vw,52px)!important;
+ color:#ffd66a!important;
+ letter-spacing:-2px!important;
+ text-shadow:0 3px #551900,0 0 5px #fff0a1,0 0 13px #d87900!important;
+}
+#slot .bod-marquee small{font-size:11px!important;color:#ffe184!important}
+#slot .bod-wing{color:#e1a638!important}
+
+/* Reel cabinet */
+#slot .bod-stage{
+ grid-template-columns:31px minmax(0,1fr) 31px!important;
+ gap:3px!important;
+ margin-top:0!important;
+ padding:5px 3px!important;
+ border:3px ridge #a56d1f!important;
+ background:linear-gradient(90deg,#351407,#100704 7%,#100704 93%,#351407)!important;
+}
+#slot .bod-reel-wrap{
+ border:6px ridge #bd8128!important;
+ background:#020101!important;
+ box-shadow:inset 0 0 20px #000,0 0 9px #000!important;
+}
+#slot .bod-reels{gap:2px!important;background:#020101!important}
+#slot .bod-reels .reel{
+ height:420px!important;
+ background:#050302!important;
+ border-right:2px solid #9b651c!important;
+}
+#slot .bod-symbol{
+ height:140px!important;
+ min-height:140px!important;
+ max-height:140px!important;
+ background:radial-gradient(ellipse at center,#1a1008 0,#080402 62%,#020101 100%)!important;
+ border-bottom:1px solid #5e350e!important;
+}
+#slot .sym-letter{font-size:65px!important}
+#slot .sym-pharaoh{font-size:73px!important}
+#slot .sym-pyramid{font-size:84px!important}
+#slot .sym-anubis{font-size:78px!important}
+#slot .sym-book{width:86px!important;height:105px!important}
+
+/* exactly 10 lines: same line numbers mirrored at both endpoints */
+#slot .bod-line-numbers{min-width:27px!important}
+#slot .bod-line-numbers b{
+ width:25px!important;
+ height:23px!important;
+ min-height:23px!important;
+ left:1px!important;
+ right:1px!important;
+ border-width:2px!important;
+ border-radius:2px!important;
+ font-size:11px!important;
+}
+
+/* Console – reference image: values in a clean black/gold strip */
+#slot .bod-console{
+ padding:9px 7px 7px!important;
+ gap:5px!important;
+ grid-template-columns:1.18fr .9fr 1.2fr 1.25fr 1fr 1.55fr!important;
+ background:linear-gradient(#1a0d06,#060302)!important;
+ border-top:3px ridge #9b641d!important;
+}
+#slot .bod-stat,#slot .bod-bet{
+ min-height:65px!important;
+ padding:6px 4px!important;
+ background:linear-gradient(#0d0805,#050302)!important;
+ border:1px solid #70450f!important;
+ border-radius:3px!important;
+}
+#slot .bod-stat small,#slot .bod-bet small{
+ font:800 9px Cinzel,serif!important;
+ color:#efd274!important;
+}
+#slot .bod-bet button{
+ height:31px!important;
+ color:#ffe077!important;
+ background:linear-gradient(#351708,#110704)!important;
+ border:1px solid #a66c1d!important;
+}
+#slot .bod-spin{
+ min-height:65px!important;
+ border:4px ridge #d09a35!important;
+ border-radius:5px!important;
+ color:#ffe481!important;
+ font:900 28px Cinzel,serif!important;
+ background:linear-gradient(#b82418,#650b07 55%,#3d0504)!important;
+ box-shadow:inset 0 0 12px rgba(255,119,46,.45),0 3px 0 #260301,0 0 12px rgba(179,34,19,.45)!important;
+}
+#slot .bod-spin:hover{filter:brightness(1.13)!important}
+
+/* Lower buttons */
+#slot .bod-subcontrols{
+ display:grid!important;
+ grid-template-columns:1fr 1fr 1fr!important;
+ gap:22px!important;
+ padding:7px 95px 5px!important;
+ background:#080402!important;
+}
+#slot .bod-subcontrols button{
+ min-height:38px!important;
+ color:#f5d46d!important;
+ font:800 13px Cinzel,serif!important;
+ background:linear-gradient(#2b1308,#0c0603)!important;
+ border:2px ridge #a66d1f!important;
+ box-shadow:inset 0 0 7px #000!important;
+}
+#slot .bod-message{
+ min-height:25px!important;
+ padding:4px 8px!important;
+ margin:0!important;
+ color:#e9c55d!important;
+ background:#070402!important;
+ border:0!important;
+ font-size:11px!important;
+ text-align:center!important;
+}
+#slot .slot-free{
+ margin:4px 8px!important;
+ padding:7px!important;
+ color:#ffe481!important;
+ background:#4f0a06!important;
+ border:1px solid #d3992e!important;
+}
+#slot .bod-footer{
+ padding:5px!important;
+ font:800 12px Cinzel,serif!important;
+ letter-spacing:.16em!important;
+ color:#d9aa42!important;
+ background:#090402!important;
+}
+
+/* RIGHT */
+.right-column{padding:9px!important;min-height:680px!important}
+.side-box{margin-bottom:9px!important;border-color:#8d5a16!important}
+.side-title{
+ padding:8px 11px!important;
+ font-size:17px!important;
+ background:linear-gradient(90deg,#8e140d,#4c0705)!important;
+ border-color:#b87821!important;
+}
+.profile{min-height:91px!important;padding:11px!important}
+.profile-orb{width:61px!important;height:61px!important}
+.side-info-body{padding:9px 12px!important}
+.side-info-body p{margin:10px 0!important;font-size:11px!important}
+.right-art{
+ height:258px!important;
+ margin-top:7px!important;
+ background:url("assets/right-dice.jpg") center/cover no-repeat!important;
+ border-color:#8d5a16!important;
+}
+
+/* keep overlays/features functional, only harmonize their visuals */
+#slot .bod-paytable-card,
+#slot .free-card{
+ border-color:#d29a30!important;
+ box-shadow:0 0 0 4px #090604,0 0 30px #000!important;
+}
+#slot .bod-paytable-head{
+ background:linear-gradient(#9b1b12,#4d0805)!important;
+ color:#ffe27c!important;
+}
+
+/* Desktop reference is the priority; preserve existing responsive behavior */
+@media(max-width:1200px){
+ .layout{grid-template-columns:240px minmax(0,1fr) 240px!important}
+ #slot .bod-reels .reel{height:360px!important}
+ #slot .bod-symbol{height:120px!important;min-height:120px!important;max-height:120px!important}
+ #slot .bod-subcontrols{padding-left:25px!important;padding-right:25px!important;gap:8px!important}
+}
+@media(max-width:900px){
+ .layout{display:block!important;width:min(760px,calc(100vw - 14px))!important}
+ .left-column,.right-column{min-height:0!important}
+ .left-art,.right-art{display:none!important}
+ #slot .bod-reels .reel{height:330px!important}
+ #slot .bod-symbol{height:110px!important;min-height:110px!important;max-height:110px!important}
+}
+
+/* V28/V27 fixed landing/expansion geometry must follow V29 cell size */
+#slot .v27-fixed-reel>.bod-symbol{
+ height:140px!important;
+ min-height:140px!important;
+ max-height:140px!important;
+}
+@media(max-width:1200px){
+ #slot .v27-fixed-reel>.bod-symbol{height:120px!important;min-height:120px!important;max-height:120px!important}
+}
+@media(max-width:900px){
+ #slot .v27-fixed-reel>.bod-symbol{height:110px!important;min-height:110px!important;max-height:110px!important}
+}
+
+/* V30 user supplied symbols */
+#slot .custom-slot-symbol{width:88%!important;height:88%!important;object-fit:contain!important;display:block!important;margin:auto!important;filter:drop-shadow(0 3px 5px #000);pointer-events:none;user-select:none}
+#slot .bod-symbol.win .custom-slot-symbol{filter:brightness(1.28) drop-shadow(0 0 10px #ffd65a)!important}
+#slot .pt-symbol .custom-slot-symbol{width:58px!important;height:58px!important;object-fit:contain!important}
+#slot .bod-paytable-scroll td:first-child{min-width:155px!important}
+#slot .bod-paytable-scroll td:first-child .pt-symbol{display:inline-flex!important;vertical-align:middle!important;margin-right:9px!important;align-items:center!important;justify-content:center!important}
+
+
+/* =========================================================
+   V32 – larger + completely stable custom symbol artwork
+   No reel/game/free-spin logic changed.
+   ========================================================= */
+
+/* Fill much more of every reel cell, but keep a fixed box so
+   different source-image dimensions cannot resize the layout. */
+#slot .bod-symbol:has(.custom-slot-symbol){
+ overflow:hidden!important;
+ padding:0!important;
+}
+#slot .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:104%!important;
+ height:104%!important;
+ max-width:none!important;
+ max-height:none!important;
+ margin:0!important;
+ object-fit:contain!important;
+ transform:translate(-50%,-50%)!important;
+ transform-origin:center center!important;
+ transition:none!important;
+ animation:none!important;
+ pointer-events:none!important;
+ user-select:none!important;
+}
+
+/* Important fix from the video:
+   winning custom-symbol cells must NEVER scale forward/backward.
+   Keep only light/glow animation; geometry stays 100% fixed. */
+#slot .bod-symbol:has(.custom-slot-symbol).win-celebrate{
+ animation:v32StableWinGlow .34s alternate infinite!important;
+ transform:none!important;
+}
+#slot .bod-symbol:has(.custom-slot-symbol).win{
+ transform:none!important;
+}
+@keyframes v32StableWinGlow{
+ from{filter:brightness(1);box-shadow:inset 0 0 0 rgba(255,209,55,0)}
+ to{filter:brightness(1.18);box-shadow:inset 0 0 22px rgba(255,209,55,.72),0 0 10px rgba(255,184,28,.55)}
+}
+
+/* Expansion may brighten/fade, but must not change symbol size. */
+#slot .v27-expand-source:has(.custom-slot-symbol),
+#slot .v27-expand-in:has(.custom-slot-symbol),
+#slot .v27-expand-change:has(.custom-slot-symbol){
+ transform:none!important;
+}
+#slot .v27-expand-source:has(.custom-slot-symbol){
+ animation:v32ExpandLight .075s ease-out both!important;
+}
+#slot .v27-expand-in:has(.custom-slot-symbol){
+ animation:v32ExpandIn .065s ease-out both!important;
+}
+@keyframes v32ExpandLight{
+ from{filter:brightness(1)}
+ to{filter:brightness(1.35) drop-shadow(0 0 8px rgba(255,210,80,.8))}
+}
+@keyframes v32ExpandIn{
+ from{opacity:.3;filter:brightness(1.35)}
+ to{opacity:1;filter:brightness(1)}
+}
+
+/* Paytable gets larger clean previews too, without affecting row height. */
+#slot .pt-symbol{
+ position:relative!important;
+ overflow:hidden!important;
+}
+#slot .pt-symbol .custom-slot-symbol{
+ width:68px!important;
+ height:68px!important;
+}
+
+/* Never let inherited win animations scale the image itself. */
+#slot .custom-slot-symbol,
+#slot .win .custom-slot-symbol,
+#slot .win-celebrate .custom-slot-symbol,
+#slot .v27-expand-source .custom-slot-symbol,
+#slot .v27-expand-in .custom-slot-symbol{
+ transform:translate(-50%,-50%)!important;
+}
+
+/* ============================================================
+   V40 CLEAN LAYOUT
+   Rebuilt from V32 to remove the conflicting V33–V39 reel fixes.
+   There is ONE authoritative reel geometry below.
+   ============================================================ */
+
+/* Successful left-panel sizing from V36 */
+.left-column{
+ min-height:735px!important;
+ padding:10px!important;
+ display:flex!important;
+ flex-direction:column!important;
+ box-sizing:border-box!important;
+}
+.left-column .mode-rail{flex:0 0 auto!important}
+.left-art{
+ flex:1 1 auto!important;
+ width:100%!important;
+ min-height:370px!important;
+ height:auto!important;
+ margin-top:10px!important;
+ background-image:url("assets/left-dice.jpg")!important;
+ background-size:cover!important;
+ background-position:center center!important;
+ background-repeat:no-repeat!important;
+ background-color:#050302!important;
+ border:1px solid #8d5a16!important;
+ box-sizing:border-box!important;
+}
+
+/* ---------- SINGLE SOURCE OF TRUTH FOR REEL GEOMETRY ---------- */
+
+/* Desktop: exactly 3 x 140 = 420 px usable reel area.
+   Gold border is OUTSIDE the 420px content area. */
+#slot .bod-reel-wrap{
+ height:420px!important;
+ min-height:420px!important;
+ max-height:420px!important;
+ padding:0!important;
+ box-sizing:content-box!important;
+ overflow:hidden!important;
+}
+#slot .bod-reels{
+ height:420px!important;
+ min-height:420px!important;
+ max-height:420px!important;
+ padding:0!important;
+ margin:0!important;
+ gap:2px!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+ align-items:stretch!important;
+}
+#slot .bod-reels .reel,
+#slot .v27-fixed-reel{
+ height:420px!important;
+ min-height:420px!important;
+ max-height:420px!important;
+ padding:0!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+}
+
+/* Static/final reels are always exactly three equal rows. */
+#slot .v27-fixed-reel{
+ display:grid!important;
+ grid-template-columns:1fr!important;
+ grid-template-rows:repeat(3,140px)!important;
+ gap:0!important;
+}
+#slot .bod-symbol,
+#slot .v27-fixed-reel>.bod-symbol{
+ position:relative!important;
+ height:140px!important;
+ min-height:140px!important;
+ max-height:140px!important;
+ margin:0!important;
+ padding:2px!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+}
+
+/* Artwork never exceeds its own row. */
+#slot .bod-symbol .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:90%!important;
+ height:90%!important;
+ max-width:90%!important;
+ max-height:90%!important;
+ margin:0!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:translate(-50%,-50%)!important;
+}
+
+/* Spinning-strip cells use the exact same cell geometry. */
+#slot .v24-symbol-cell,
+#slot .v25-symbol-cell{
+ height:140px!important;
+ min-height:140px!important;
+ max-height:140px!important;
+ padding:0!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+}
+#slot .v24-symbol-cell>.bod-symbol,
+#slot .v25-symbol-cell>.bod-symbol{
+ height:140px!important;
+ min-height:140px!important;
+ max-height:140px!important;
+ inset:auto!important;
+ position:relative!important;
+}
+
+/* At the layout's <=1200px breakpoint:
+   exactly 3 x 120 = 360 px. Every related element changes together. */
+@media(max-width:1200px){
+ .left-column{min-height:735px!important}
+ .left-art{min-height:370px!important}
+
+ #slot .bod-reel-wrap,
+ #slot .bod-reels,
+ #slot .bod-reels .reel,
+ #slot .v27-fixed-reel{
+   height:360px!important;
+   min-height:360px!important;
+   max-height:360px!important;
+ }
+ #slot .v27-fixed-reel{
+   grid-template-rows:repeat(3,120px)!important;
+ }
+ #slot .bod-symbol,
+ #slot .v27-fixed-reel>.bod-symbol,
+ #slot .v24-symbol-cell,
+ #slot .v25-symbol-cell,
+ #slot .v24-symbol-cell>.bod-symbol,
+ #slot .v25-symbol-cell>.bod-symbol{
+   height:120px!important;
+   min-height:120px!important;
+   max-height:120px!important;
+ }
+}
+
+/* Mobile: exactly 3 x 110 = 330 px. */
+@media(max-width:900px){
+ #slot .bod-reel-wrap,
+ #slot .bod-reels,
+ #slot .bod-reels .reel,
+ #slot .v27-fixed-reel{
+   height:330px!important;
+   min-height:330px!important;
+   max-height:330px!important;
+ }
+ #slot .v27-fixed-reel{
+   grid-template-rows:repeat(3,110px)!important;
+ }
+ #slot .bod-symbol,
+ #slot .v27-fixed-reel>.bod-symbol,
+ #slot .v24-symbol-cell,
+ #slot .v25-symbol-cell,
+ #slot .v24-symbol-cell>.bod-symbol,
+ #slot .v25-symbol-cell>.bod-symbol{
+   height:110px!important;
+   min-height:110px!important;
+   max-height:110px!important;
+ }
+}
+
+/* ============================================================
+   V41 – spin start + feature display fix
+   ============================================================ */
+
+/* During the moving strip, each symbol fills exactly its strip cell.
+   This prevents empty-looking gaps while spinning. */
+#slot .v25-symbol-cell>.bod-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ max-height:none!important;
+ margin:0!important;
+ padding:2px!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+}
+
+/* Book feature now displays the actual chosen custom symbol image. */
+#featureChosenSymbol{
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ overflow:hidden!important;
+ font-size:0!important;
+}
+#featureChosenSymbol .custom-slot-symbol{
+ position:static!important;
+ width:min(72%,180px)!important;
+ height:min(72%,180px)!important;
+ max-width:180px!important;
+ max-height:180px!important;
+ object-fit:contain!important;
+ transform:none!important;
+ margin:auto!important;
+ filter:drop-shadow(0 0 12px rgba(255,190,55,.7))!important;
+}
+
+/* ============================================================
+   V42 – seamless expanding-symbol crossfade
+   Old symbol stays visible until the new one has faded in.
+   ============================================================ */
+
+#slot .v42-crossfade-cell{
+ position:relative!important;
+ overflow:hidden!important;
+}
+
+/* Overlay exactly on top of the current symbol. */
+#slot .v42-expand-incoming{
+ position:absolute!important;
+ inset:0!important;
+ z-index:20!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ opacity:0!important;
+ background:transparent!important;
+ transition:opacity .15s linear,filter .15s ease-out!important;
+ filter:brightness(.82)!important;
+ pointer-events:none!important;
+}
+
+/* Brief darkening happens only as part of the crossfade; the cell never empties. */
+#slot .v42-expand-incoming.v42-show{
+ opacity:1!important;
+ filter:brightness(1)!important;
+}
+
+/* The incoming makeSymbol() wrapper fills the exact same geometry. */
+#slot .v42-expand-incoming>.bod-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ max-height:none!important;
+ margin:0!important;
+ padding:2px!important;
+ box-sizing:border-box!important;
+ background:transparent!important;
+ border:0!important;
+}
+
+/* Keep custom image size identical before, during and after transition. */
+#slot .v42-expand-incoming .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:90%!important;
+ height:90%!important;
+ max-width:90%!important;
+ max-height:90%!important;
+ object-fit:contain!important;
+ transform:translate(-50%,-50%)!important;
+ animation:none!important;
+ transition:none!important;
+}
+
+/* ============================================================
+   V43 – ONE geometry for STOP / START + true symbol crossfade
+   ============================================================ */
+
+/* Static stopped reel and moving-strip cells use the SAME box model. */
+#slot .reel.reel-static.v27-fixed-reel,
+#slot .v25-reel-stopped{
+ padding:0!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ background:#050301!important;
+}
+#slot .reel.reel-static.v27-fixed-reel>.bod-symbol,
+#slot .v25-symbol-cell>.bod-symbol{
+ width:100%!important;
+ margin:0!important;
+ padding:2px!important;
+ box-sizing:border-box!important;
+ border-radius:0!important;
+}
+
+/* No visual zoom/filter/layout jump when a spin starts or stops. */
+#slot .v25-reel-spinning,
+#slot .v25-reel-stopped,
+#slot .reel.reel-static.v27-fixed-reel{
+ transform:none!important;
+ filter:none!important;
+ transition:none!important;
+}
+
+/* True crossfade: old image fades OUT while new image fades IN.
+   The cell itself never becomes empty or black. */
+#slot .v43-crossfade-cell{
+ position:relative!important;
+ overflow:hidden!important;
+}
+#slot .v43-expand-outgoing,
+#slot .v43-expand-incoming{
+ position:absolute!important;
+ inset:0!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ margin:0!important;
+ padding:2px!important;
+ box-sizing:border-box!important;
+ background:transparent!important;
+ pointer-events:none!important;
+}
+#slot .v43-expand-outgoing{
+ z-index:21!important;
+ opacity:1!important;
+ transition:opacity .115s linear!important;
+}
+#slot .v43-expand-incoming{
+ z-index:22!important;
+ opacity:0!important;
+ transition:opacity .115s linear!important;
+}
+#slot .v43-expand-outgoing.v43-hide{opacity:0!important}
+#slot .v43-expand-incoming.v43-show{opacity:1!important}
+
+/* Both layers use exactly the same image geometry as the final symbol. */
+#slot .v43-expand-outgoing .custom-slot-symbol,
+#slot .v43-expand-incoming .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:90%!important;
+ height:90%!important;
+ max-width:90%!important;
+ max-height:90%!important;
+ object-fit:contain!important;
+ object-position:center!important;
+ transform:translate(-50%,-50%)!important;
+ filter:none!important;
+ animation:none!important;
+ transition:none!important;
+}
+
+/* Remove the old V42 visual darkening from the effective transition. */
+#slot .v43-crossfade-cell{filter:none!important}
+
+/* ============================================================
+   V44 – direct expanding-symbol swap
+   No fade, opacity, black frame or empty intermediate state.
+   ============================================================ */
+#slot .v27-expand-change,
+#slot .v27-expand-in,
+#slot .v42-crossfade-cell,
+#slot .v43-crossfade-cell{
+ opacity:1!important;
+ filter:none!important;
+ animation:none!important;
+ transition:none!important;
+}
+#slot .v42-expand-incoming,
+#slot .v43-expand-outgoing,
+#slot .v43-expand-incoming{
+ display:none!important;
+}
+
+/* ============================================================
+   V45 – ONE SYMBOL SIZE IN EVERY STATE
+   User preference: keep the larger size seen DURING spinning.
+   Stand / start / spinning / braking / stop / expand all use it.
+   ============================================================ */
+
+/* One authoritative artwork geometry everywhere in the reels. */
+#slot .bod-symbol .custom-slot-symbol,
+#slot .v24-symbol-cell .custom-slot-symbol,
+#slot .v25-symbol-cell .custom-slot-symbol,
+#slot .v27-fixed-reel .custom-slot-symbol,
+#slot .reel-static .custom-slot-symbol,
+#slot .v25-reel-spinning .custom-slot-symbol,
+#slot .v25-reel-stopped .custom-slot-symbol,
+#slot .v27-expand-source .custom-slot-symbol,
+#slot .v27-expand-in .custom-slot-symbol,
+#slot .v27-expand-change .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:100%!important;
+ height:100%!important;
+ min-width:100%!important;
+ min-height:100%!important;
+ max-width:100%!important;
+ max-height:100%!important;
+ margin:0!important;
+ padding:0!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:translate(-50%,-50%)!important;
+ transform-origin:center center!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:none!important;
+ transition:none!important;
+}
+
+/* The symbol holder itself may never scale when state/classes change. */
+#slot .bod-symbol,
+#slot .v24-symbol-cell>.bod-symbol,
+#slot .v25-symbol-cell>.bod-symbol,
+#slot .v27-fixed-reel>.bod-symbol{
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+}
+
+/* Winning state may glow, but MUST NOT alter geometry. */
+#slot .bod-symbol.win,
+#slot .bod-symbol.win-celebrate{
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+}
+#slot .bod-symbol.win .custom-slot-symbol,
+#slot .bod-symbol.win-celebrate .custom-slot-symbol{
+ width:100%!important;
+ height:100%!important;
+ transform:translate(-50%,-50%)!important;
+ scale:1!important;
+}
+
+/* Direct expansion from V44 keeps exactly the same large geometry. */
+#slot .v27-expand-source .custom-slot-symbol,
+#slot .v27-expand-in .custom-slot-symbol,
+#slot .v27-expand-change .custom-slot-symbol{
+ width:100%!important;
+ height:100%!important;
+ max-width:100%!important;
+ max-height:100%!important;
+}
+
+/* ============================================================
+   V46 – STOP/START ZOOM REMOVED AT SOURCE
+   Keep the large DURING-SPIN appearance as the reference.
+   ============================================================ */
+
+/* Strip cell owns the visual box. */
+#slot .v25-symbol-cell{
+ position:relative!important;
+ width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+ background:#050301!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+ animation:none!important;
+}
+
+/* Nested symbol fills that exact box without introducing a second geometry. */
+#slot .v25-symbol-cell>.bod-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+ min-height:0!important;
+ max-height:none!important;
+ margin:0!important;
+ padding:0!important;
+ border:0!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+ animation:none!important;
+}
+
+/* The requested large spin size is locked for the artwork. */
+#slot .v25-symbol-cell .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:100%!important;
+ height:100%!important;
+ min-width:100%!important;
+ min-height:100%!important;
+ max-width:100%!important;
+ max-height:100%!important;
+ margin:0!important;
+ padding:0!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:translate(-50%,-50%)!important;
+ transform-origin:center!important;
+ scale:1!important;
+ zoom:1!important;
+ filter:none!important;
+ transition:none!important;
+ animation:none!important;
+}
+
+/* Nothing about stopped/winning state is allowed to scale the strip. */
+#slot .v25-reel-stopped,
+#slot .v25-reel-stopped .v25-symbol-strip,
+#slot .v25-reel-stopped .v25-symbol-cell,
+#slot .v25-reel-stopped .bod-symbol,
+#slot .v25-reel-stopped .custom-slot-symbol{
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+ animation:none!important;
+}
+
+/* ============================================================
+   V47 – restore expansion without bringing zoom back
+   ============================================================ */
+
+/* Expansion-ready static cells are pixel-identical to stopped strip cells. */
+#slot .v47-expand-ready>.bod-symbol{
+ position:relative!important;
+ width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+ background:#050301!important;
+ border:1px solid rgba(164,105,27,.55)!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+ animation:none!important;
+}
+
+#slot .v47-expand-ready>.bod-symbol .custom-slot-symbol{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:100%!important;
+ height:100%!important;
+ min-width:100%!important;
+ min-height:100%!important;
+ max-width:100%!important;
+ max-height:100%!important;
+ margin:0!important;
+ padding:0!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:translate(-50%,-50%)!important;
+ scale:1!important;
+ zoom:1!important;
+ transition:none!important;
+ animation:none!important;
+ filter:none!important;
+}
+
+/* ============================================================
+   V49 – HARD ANTI-ZOOM LOCK
+   One immutable geometry for idle, spin, stop, win and expansion.
+   The reel strip may still translate vertically; no element may scale.
+   ============================================================ */
+#slot .bod-cabinet,
+#slot .bod-stage,
+#slot .bod-reel-wrap,
+#slot .bod-reels,
+#slot .bod-reels>.reel,
+#slot .v25-symbol-cell,
+#slot .v25-symbol-cell>.bod-symbol,
+#slot .v27-fixed-reel>.bod-symbol{
+ scale:1!important;
+ zoom:1!important;
+ transform-origin:center center!important;
+ transition-property:none!important;
+}
+
+/* Artwork uses the same inset in every DOM/state variant. */
+#slot .bod-reels .custom-slot-symbol,
+#slot .v25-reel-spinning .custom-slot-symbol,
+#slot .v25-reel-stopped .custom-slot-symbol,
+#slot .v27-fixed-reel .custom-slot-symbol,
+#slot .v47-expand-ready .custom-slot-symbol,
+#slot .bod-symbol.win .custom-slot-symbol,
+#slot .bod-symbol.win-celebrate .custom-slot-symbol{
+ position:absolute!important;
+ inset:0!important;
+ width:90%!important;
+ height:90%!important;
+ min-width:0!important;
+ min-height:0!important;
+ max-width:90%!important;
+ max-height:90%!important;
+ margin:auto!important;
+ padding:0!important;
+ object-fit:contain!important;
+ object-position:center center!important;
+ transform:none!important;
+ transform-origin:center center!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:none!important;
+ transition:none!important;
+}
+
+/* Older win/status keyframes used scale() and could look like the complete
+   game was repeatedly zooming. Keep only static light emphasis. */
+#slot .bod-symbol.win,
+#slot .bod-symbol.win-celebrate,
+#slot #slotWin.counting-win,
+#slot .slot-free{
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:none!important;
+ transition:none!important;
+}
+
+/* Explicitly prevent the browser from applying state-dependent geometry to
+   the stopped reel. Do not set transform on .v25-symbol-strip: its vertical
+   translate3d is the actual spinning motion. */
+#slot .v25-reel-spinning,
+#slot .v25-reel-stopped,
+#slot .reel-static,
+#slot .v27-fixed-reel,
+#slot .v47-expand-ready{
+ transform:none!important;
+ transform-origin:center center!important;
+ scale:1!important;
+ zoom:1!important;
+ animation:none!important;
+ transition:none!important;
+}
+
+/* V51 final overrides: these intentionally follow the V49 safety lock. */
+#slot .bod-reels .custom-slot-symbol,
+#slot .classic-reel-cell .custom-slot-symbol,
+#slot .v25-symbol-cell .custom-slot-symbol,
+#slot .v27-fixed-reel .custom-slot-symbol,
+#slot .v47-expand-ready .custom-slot-symbol,
+#slot .bod-symbol.win .custom-slot-symbol,
+#slot .bod-symbol.win-celebrate .custom-slot-symbol{
+ inset:0!important;
+ width:86%!important;
+ height:86%!important;
+ min-width:0!important;
+ min-height:0!important;
+ max-width:86%!important;
+ max-height:86%!important;
+ margin:auto!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+}
+#slot .bod-symbol[data-sym="VALORIAN"] .custom-slot-symbol,
+#slot .bod-symbol[data-sym="DERION"] .custom-slot-symbol{
+ width:82%!important;
+ height:82%!important;
+ max-width:82%!important;
+ max-height:82%!important;
+}
+#slot .v27-fixed-reel.classic-reel-stopped{
+ animation:v51ReelSettle .14s ease-out both!important;
+}
+#slot .bod-symbol.win,
+#slot .bod-symbol.win-celebrate{
+ animation:v51WinLight .52s ease-in-out infinite alternate!important;
+ outline:1px solid rgba(255,204,72,.75)!important;
+ outline-offset:-2px!important;
+ transform:none!important;
+ scale:1!important;
+ zoom:1!important;
+}
+
+/* ============================================================
+   START1 – full-screen 4SLOTS mode selection
+   The artwork is the approved layout; transparent buttons preserve its
+   composition while making each complete card a real clickable control.
+   ============================================================ */
+#startMenu.start-menu{
+ position:fixed;
+ inset:0;
+ z-index:1000;
+ display:grid;
+ place-items:center;
+ padding:0;
+ overflow:auto;
+ background:#080504;
+}
+#startMenu.hidden{display:none!important}
+#startMenu .start-menu-stage{
+ position:relative;
+ width:min(100vw,1672px);
+ min-width:320px;
+ aspect-ratio:1672/940;
+ background:url("assets/start-screen-4gamble.png") center/100% 100% no-repeat;
+ box-shadow:0 0 50px #000;
+}
+
+/* ============================================================
+   4GAMBLE UNIFIED – shared chrome for every game view
+   This layer intentionally avoids .bod-stage/.bod-reels/.reel/.bod-symbol,
+   so the proven slot reel geometry and animation stay untouched.
+   ============================================================ */
+body{
+ background:
+  radial-gradient(ellipse at top,rgba(110,18,8,.20),transparent 43%),
+  linear-gradient(rgba(4,3,2,.72),rgba(4,3,2,.88)),
+  url("assets/hero-full.jpg") top center/cover fixed!important;
+}
+.page{
+ background:linear-gradient(90deg,rgba(3,2,1,.62),rgba(12,5,3,.18) 18%,rgba(12,5,3,.18) 82%,rgba(3,2,1,.62))!important;
+}
+.hero{
+ position:relative!important;
+ background:url("assets/hero-full.jpg") center/100% 100% no-repeat!important;
+ border-bottom:2px solid #b8751f!important;
+ box-shadow:0 10px 24px #000!important;
+}
+.hero::before{
+ content:"4Gamble"!important;
+ display:grid!important;
+ place-items:center!important;
+ position:absolute!important;
+ z-index:5!important;
+ left:50%!important;
+ top:22%!important;
+ width:43%!important;
+ height:49%!important;
+ transform:translateX(-50%)!important;
+ color:#ffe5a1!important;
+ font:900 clamp(34px,5.2vw,82px)/1 Georgia,serif!important;
+ letter-spacing:-.055em!important;
+ text-shadow:0 3px 0 #5c2105,0 0 18px #e69a22,0 4px 12px #000!important;
+ background:radial-gradient(ellipse at center,rgba(15,8,4,.98) 15%,rgba(9,5,3,.94) 58%,rgba(4,2,1,.1) 100%)!important;
+ border:1px solid rgba(205,145,43,.7)!important;
+ border-radius:38% 38% 30% 30%!important;
+ box-shadow:inset 0 0 22px #000,0 0 16px rgba(240,178,44,.32)!important;
+}
+.hero::after{
+ content:"WÜRFELN. ZOCKEN. GEWINNEN."!important;
+ display:block!important;
+ position:absolute!important;
+ z-index:6!important;
+ top:72%!important;
+ left:50%!important;
+ transform:translateX(-50%)!important;
+ color:#f2d477!important;
+ white-space:nowrap!important;
+ font:800 clamp(9px,1.15vw,18px)/1.1 Cinzel,Georgia,serif!important;
+ letter-spacing:.08em!important;
+ text-shadow:0 2px 3px #000!important;
+}
+.layout{
+ gap:12px!important;
+ padding:10px!important;
+ background:linear-gradient(90deg,rgba(9,5,3,.80),rgba(31,11,5,.18) 22%,rgba(31,11,5,.18) 78%,rgba(9,5,3,.80))!important;
+}
+.frame,.left-column,.center-column,.right-column{
+ border:2px solid #bd8129!important;
+ background:linear-gradient(150deg,rgba(17,10,6,.96),rgba(4,3,2,.95))!important;
+ box-shadow:inset 0 0 0 2px #261306,inset 0 0 22px #000,0 0 12px rgba(0,0,0,.72)!important;
+}
+.left-column,.right-column{
+ background:
+  linear-gradient(rgba(7,4,3,.34),rgba(7,4,3,.48)),
+  url("assets/dark.jpg") center/cover!important;
+}
+.titlebar,.side-title,.players-titlebar{
+ color:#ffe29a!important;
+ background:linear-gradient(180deg,#8e180e,#3a0705 58%,#180403)!important;
+ border:2px solid #c98a29!important;
+ box-shadow:inset 0 0 12px #3a0603,0 2px 7px #000!important;
+ text-shadow:0 2px 2px #250600!important;
+}
+.titlebar{font-family:Cinzel,Georgia,serif!important;letter-spacing:.06em!important}
+.mode,.slot-mode-btn{
+ color:#f8d77c!important;
+ background:linear-gradient(160deg,#1b1008,#060403)!important;
+ border:2px solid #b87820!important;
+ box-shadow:inset 0 0 14px #000,0 2px 4px #000!important;
+}
+.mode:hover,.slot-mode-btn:hover,.mode.active,.slot-mode-btn.active{
+ background:linear-gradient(180deg,#b72a1c,#5b0805 62%,#230302)!important;
+ border-color:#f0bf4b!important;
+ box-shadow:inset 0 0 13px rgba(255,165,45,.38),0 0 10px rgba(232,159,37,.4)!important;
+}
+.mode-copy strong,.mode-copy small{color:inherit!important;text-shadow:0 1px 2px #000!important}
+.parchment,.home-intro,.home-card,.players-panel,.lobby-settings{
+ color:#351307!important;
+ background:linear-gradient(135deg,#f0dba9,#d8b873 52%,#f1dbad)!important;
+ border:2px solid #bd8129!important;
+ box-shadow:inset 0 0 0 2px rgba(255,242,196,.58),inset 0 0 24px rgba(100,48,8,.26),0 3px 8px #000!important;
+}
+.home-intro h2,.home-card h3,.lobby-setting .setting-label{color:#7e1b11!important;text-shadow:none!important}
+.home-card input,.lobby-setting input,.black-select,.room-code{
+ color:#2c1208!important;
+ background:#f6e3b9!important;
+ border:1px solid #b87922!important;
+ box-shadow:inset 0 1px 5px rgba(76,35,8,.3)!important;
+}
+.red-btn,.full,.mini-dark,.invite-link,.shuffle-btn,.copy-icon,.game-btn,.start-btn{
+ color:#ffe597!important;
+ background:linear-gradient(180deg,#b72418,#620906 58%,#2c0302)!important;
+ border:2px solid #d59b32!important;
+ box-shadow:inset 0 0 10px rgba(255,163,44,.3),0 2px 3px #2a0301!important;
+ text-shadow:0 1px #440905!important;
+}
+.red-btn:hover,.mini-dark:hover,.invite-link:hover,.shuffle-btn:hover,.game-btn:hover,.start-btn:hover{filter:brightness(1.16)!important}
+.side-box,.profile,.right-art{
+ color:#f2d587!important;
+ background:linear-gradient(160deg,#160c08,#040303)!important;
+ border:2px solid #bd8129!important;
+ box-shadow:inset 0 0 15px #000!important;
+}
+.side-info-body p{border-bottom-color:rgba(214,153,44,.25)!important}
+
+/* Slot: outer presentation only. The reel stage and all reel children are
+   deliberately not selected anywhere in this unified theme. */
+#slot .bod-cabinet{
+ background:linear-gradient(160deg,#120805,#030202)!important;
+ border:3px solid #c98a29!important;
+ box-shadow:inset 0 0 0 2px #311506,inset 0 0 30px #000,0 4px 18px #000!important;
+}
+#slot .bod-marquee,#slot .bod-console,#slot .bod-subcontrols,#slot .bod-message,#slot .bod-footer{
+ border-color:#c98a29!important;
+ background:linear-gradient(180deg,#57100b,#160403 55%,#080202)!important;
+ box-shadow:inset 0 0 12px #000!important;
+}
+#slot .bod-marquee b,#slot .bod-marquee small,#slot .bod-footer{color:#ffe39a!important;text-shadow:0 2px 2px #310600!important}
+#slot .bod-console .bod-stat,#slot .bod-console .bod-bet,#slot .bod-subcontrols button{
+ background:linear-gradient(160deg,#1b0b06,#050302)!important;
+ border-color:#c98a29!important;
+}
+#slot .bod-spin{border-color:#e3a735!important;box-shadow:inset 0 0 14px rgba(255,154,38,.42),0 2px 7px #000!important}
+@media(max-width:900px){
+ .hero::before{width:58%!important;font-size:clamp(28px,8vw,52px)!important}
+ .layout{padding:6px!important}
+}
+#startMenu .start-mode-card{
+ position:absolute;
+ top:36.2%;
+ height:51.2%;
+ padding:0;
+ margin:0;
+ cursor:pointer;
+ border:2px solid transparent;
+ border-radius:5px;
+ background:transparent;
+ appearance:none;
+ transition:background .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+#startMenu .start-mode-card:hover,
+#startMenu .start-mode-card:focus-visible{
+ border-color:rgba(255,219,112,.9);
+ background:rgba(255,194,53,.09);
+ box-shadow:inset 0 0 34px rgba(255,190,38,.18),0 0 15px rgba(255,190,38,.4);
+ outline:none;
+}
+#startMenu .start-mode-duel{left:6%;width:28.6%}
+#startMenu .start-mode-ten{left:36%;width:28.1%}
+#startMenu .start-mode-slot{left:65.3%;width:28.7%}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:700px){
+ #startMenu.start-menu{place-items:start center;background:#080504}
+ #startMenu .start-menu-stage{width:100vw;min-width:0}
+}
+
+/* ============================================================
+   V52 – compact currency HUD + scalable free-spin symbol tiles
+   ============================================================ */
+#slot .bod-console{
+ grid-template-columns:.88fr 1.18fr 1.25fr 1fr 1.55fr!important;
+}
+
+#slot .money-unit{
+ gap:6px!important;
+ color:#f7f2e8!important;
+ font-variant-numeric:tabular-nums;
+}
+#slot .money-unit .coin{
+ position:relative;
+ width:21px!important;
+ height:21px!important;
+ min-width:21px!important;
+ border:1px solid rgba(255,245,199,.72)!important;
+ box-shadow:inset 0 0 0 2px rgba(55,24,0,.28),inset -2px -2px 4px rgba(0,0,0,.32),0 1px 5px #000!important;
+}
+#slot .money-unit .coin::after{
+ content:"";
+ position:absolute;
+ inset:5px;
+ border-radius:50%;
+ border:1px solid rgba(77,43,6,.5);
+ box-shadow:inset 0 0 2px rgba(255,255,255,.55);
+}
+#slot .money-unit .coin-silver::after{border-color:rgba(61,69,76,.55)}
+#slot .money-unit b{
+ color:#fff!important;
+ font:900 clamp(16px,1.35vw,22px)/1 Arial,sans-serif!important;
+ letter-spacing:.01em;
+ text-shadow:0 1px 2px #000!important;
+}
+#slot .money-divider{
+ width:1px;
+ height:25px;
+ margin:0 3px;
+ background:linear-gradient(transparent,#b37a22 25% 75%,transparent);
+}
+
+#slot .bod-status-hud{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:10px;
+ margin:6px 8px 7px;
+ align-items:stretch;
+}
+#slot .bod-status-hud.feature-active{
+ grid-template-columns:minmax(210px,.8fr) minmax(360px,1.45fr);
+}
+#slot .currency-hud,
+#slot .slot-free{
+ min-width:0;
+ min-height:82px;
+ margin:0!important;
+ padding:9px 13px!important;
+ box-sizing:border-box;
+ color:#fff!important;
+ background:linear-gradient(180deg,#100c08 0%,#030302 100%)!important;
+ border:2px solid #b98224!important;
+ outline:1px solid #3f2609;
+ outline-offset:-5px;
+ box-shadow:inset 0 0 18px rgba(0,0,0,.92),0 2px 8px #000!important;
+}
+#slot .currency-hud{
+ display:grid;
+ grid-template-columns:auto 1fr;
+ align-items:center;
+ gap:16px;
+}
+#slot .currency-hud small,
+#slot .slot-free small{
+ color:#dcb857;
+ font:900 10px/1 Cinzel,Georgia,serif;
+ letter-spacing:.1em;
+ white-space:nowrap;
+}
+#slot .currency-hud>strong{
+ display:flex;
+ justify-content:center;
+ min-width:0;
+}
+#slot .currency-hud .money-unit b{
+ font-size:clamp(23px,2vw,31px)!important;
+}
+#slot .currency-hud .money-unit .coin{
+ width:26px!important;
+ height:26px!important;
+ min-width:26px!important;
+}
+
+#slot .slot-free{
+ display:grid!important;
+ grid-template-columns:auto minmax(0,1fr);
+ gap:14px;
+ align-items:center;
+ transform:none!important;
+}
+#slot .slot-free.hidden{display:none!important}
+#slot .free-count{
+ display:grid;
+ grid-template-columns:auto auto;
+ gap:10px;
+ align-items:center;
+ padding-right:14px;
+ border-right:1px solid #9a681d;
+}
+#slot .free-count strong{
+ color:#fff;
+ font:900 clamp(27px,2.5vw,38px)/1 Arial,sans-serif;
+ font-variant-numeric:tabular-nums;
+ text-shadow:0 1px 3px #000;
+}
+#slot .expand-status{
+ min-width:0;
+ display:grid;
+ grid-template-columns:auto minmax(0,1fr);
+ gap:10px;
+ align-items:center;
+}
+#slot .feature-symbol-list{
+ --feature-cols:1;
+ min-width:0;
+ display:grid;
+ grid-template-columns:repeat(var(--feature-cols),minmax(42px,1fr));
+ gap:6px;
+ align-items:stretch;
+}
+#slot .feature-symbol-chip{
+ min-width:0;
+ display:grid;
+ grid-template-rows:minmax(45px,58px) auto;
+ place-items:center;
+ padding:3px 3px 2px;
+ overflow:hidden;
+ color:#f2cf6d;
+ background:linear-gradient(#25150a,#070403);
+ border:1px solid #b77c20;
+ box-shadow:inset 0 0 8px #000;
+}
+#slot .feature-symbol-art{
+ position:relative;
+ width:100%;
+ height:100%;
+ min-height:0;
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+ background:radial-gradient(circle,#2e1b0c,#050302 72%);
+}
+#slot .feature-symbol-art .custom-slot-symbol{
+ position:absolute!important;
+ inset:2px!important;
+ width:calc(100% - 4px)!important;
+ height:calc(100% - 4px)!important;
+ max-width:none!important;
+ max-height:none!important;
+ margin:auto!important;
+ object-fit:contain!important;
+ transform:none!important;
+ animation:none!important;
+}
+#slot .feature-symbol-chip>b{
+ width:100%;
+ overflow:hidden;
+ text-overflow:ellipsis;
+ color:#e6bf59;
+ font:800 8px/1.2 Cinzel,Georgia,serif;
+ text-align:center;
+ white-space:nowrap;
+ text-transform:uppercase;
+}
+#slot .feature-symbol-list.feature-many .feature-symbol-chip{
+ grid-template-rows:40px auto;
+}
+
+/* The old floating text list is no longer used; the thumbnails live in HUD. */
+#slot .active-feature-stack{display:none!important}
+
+/* ============================================================
+   4GAMBLE FIX – keep the sharp game layout without changing reels
+   ============================================================ */
+/* The large full-screen artwork made the page look blurred and reduced the
+   actual game to a small island.  The artwork stays in the header only. */
+html,body{background:#050302!important}
+body{
+ background:linear-gradient(180deg,#120905 0,#050302 38%,#020201 100%)!important;
+}
+.page{background:transparent!important}
+
+/* hero-full already carries the slogan.  Adding it a second time produced
+   the visible doubled line in the header. */
+.hero::after{display:none!important;content:none!important}
+.hero::before{
+ width:39%!important;
+ height:46%!important;
+ top:19%!important;
+ background:radial-gradient(ellipse at center,rgba(13,7,3,.96) 18%,rgba(7,4,2,.88) 62%,rgba(4,2,1,0) 100%)!important;
+}
+
+/* Restore the original right-hand illustration; the common dark panel rule
+   must not replace this image. */
+.right-art{
+ color:#f2d587!important;
+ background:url("assets/right-dice.jpg") center/cover no-repeat!important;
+ border:2px solid #bd8129!important;
+ box-shadow:inset 0 0 15px #000!important;
+}
+
+/* Use the established desktop proportions on wide screens. */
+@media(min-width:1201px){
+ .hero,.layout{width:min(1536px,calc(100vw - 24px))!important}
+ .layout{padding:4px 2px 18px!important;gap:10px!important}
+}
+
+@media(max-width:900px){
+ #slot .bod-console{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #slot .bod-spin{grid-column:1/-1}
+ #slot .bod-status-hud.feature-active{grid-template-columns:1fr}
+ #slot .currency-hud{min-height:66px}
+}
+@media(max-width:620px){
+ #slot .slot-free{grid-template-columns:1fr;gap:8px}
+ #slot .free-count{border-right:0;border-bottom:1px solid #9a681d;padding:0 0 8px;justify-content:center}
+ #slot .expand-status{grid-template-columns:1fr;gap:6px;text-align:center}
+ #slot .feature-symbol-list{grid-template-columns:repeat(auto-fit,minmax(52px,1fr))}
+}
